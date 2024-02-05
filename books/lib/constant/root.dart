@@ -1,0 +1,26 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class Root {
+  static String apiKey = "AIzaSyDPL7XdipFF6NVL3Ax3VJ1HJ14C8jwMrTE";
+  static String lang = "";
+  static String langsearch = Get.deviceLocale!.languageCode;
+
+  // Img
+  static String imgloc = "images";
+  static String logo = "$imgloc/logo.jpg";
+  // Size
+  static double fontsize = 14;
+  static double iconsize = 25;
+  // Theme
+  static ThemeMode themeMode = ThemeMode.light;
+  static String mode = "";
+  // lottie
+  static String search = "$imgloc/search.json";
+}
+
+class ThemeDataClass {
+  static Color textLight = Colors.black;
+  static Color textDark = Colors.white;
+  static Color grey = Colors.grey;
+}
