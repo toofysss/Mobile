@@ -3,7 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:law/Data/homescreen.dart';
-import 'package:law/contant/api.dart';
+import 'package:law/contant/config.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/alert.dart';
 import 'package:law/widget/backbutton.dart';
@@ -41,7 +41,7 @@ class ConsultationController extends GetxController {
     }
 
     AlertClass.waiting();
-    var url = Uri.parse('${ApiClass.api}/Consultation/Insert');
+    var url = Uri.parse('${Config.api}/Consultation/Insert');
     var request = http.MultipartRequest("POST", url);
     request.fields["UserID"] = userID;
     request.fields["Phone"] = whatsapp.text;

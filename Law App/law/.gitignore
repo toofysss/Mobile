@@ -30,7 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-lib/contant/api.dart
+/lib/contant/config.dart
 
 # Symbolication related
 app.*.symbols

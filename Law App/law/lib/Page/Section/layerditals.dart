@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:law/Data/homescreen.dart';
 import 'package:law/Page/services/consultation.dart';
-import 'package:law/contant/api.dart';
+import 'package:law/contant/config.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/backbutton.dart';
 import 'package:law/widget/custombutton.dart';
@@ -57,7 +57,7 @@ class LayerDetails extends StatelessWidget {
                             image: DecorationImage(
                                 fit: BoxFit.fill,
                                 image: CachedNetworkImageProvider(
-                                  "${ApiClass.api}/LaweysControll/${item['img']}",
+                                  "${Config.api}/LaweysControll/${item['img']}",
                                   headers: const {"accept": "*/*"},
                                 ))),
                       ),

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:law/Data/goverment.dart';
 import 'package:law/Data/homescreen.dart';
 import 'package:law/Page/Section/layers.dart';
-import 'package:law/contant/api.dart';
+import 'package:law/contant/config.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/alert.dart';
 import 'package:law/widget/backbutton.dart';
@@ -29,7 +29,7 @@ class AppointmentLawyerController extends GetxController {
       }
       var response = await http.get(
           Uri.parse(
-              "${ApiClass.api}/LaweysControll/GetBy?depart=${department.text}&govermentID=${govermentID.text}&room=${court.text}"),
+              "${Config.api}/LaweysControll/GetBy?depart=${department.text}&govermentID=${govermentID.text}&room=${court.text}"),
           headers: {"accept": "text/plain"});
       if (response.statusCode == 200) {
         List responsebody = jsonDecode(response.body);

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:law/Desing/customcard.dart';
 import 'package:law/class/blog.dart';
-import 'package:law/contant/api.dart';
+import 'package:law/contant/config.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/backbutton.dart';
 import 'package:law/widget/customloading.dart';
@@ -41,7 +41,7 @@ class BlogDetails extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                           child: CachedNetworkImage(
                             imageUrl:
-                                "${ApiClass.api}/BlogControll/${item.img}",
+                                "${Config.api}/BlogControll/${item.img}",
                             httpHeaders: const {"accept": "*/*"},
                             fit: BoxFit.fill,
                             width: 250,
