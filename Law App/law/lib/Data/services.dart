@@ -8,7 +8,7 @@ import 'package:law/class/contract.dart';
 import 'package:law/class/decisionscouncilministers.dart';
 import 'package:law/class/iraqbank.dart';
 import 'package:law/class/yourright.dart';
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/alert.dart';
 import 'package:open_file/open_file.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:law/Page/blog/blogdetails.dart';
 import 'package:law/class/blog.dart';
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/customtext.dart';
 
@@ -36,7 +36,7 @@ class CustomCarouselBlog extends StatelessWidget {
                 image: DecorationImage(
                     fit: BoxFit.contain,
                     image: CachedNetworkImageProvider(
-                      "${Config.api}/BlogControll/${item['img']}",
+                      "${ApiClass.api}/BlogControll/${item['img']}",
                     ))),
             child: Column(
               mainAxisSize: MainAxisSize.min,

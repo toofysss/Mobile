@@ -25,41 +25,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocalController controller = Get.put(LocalController());
-
-    return GetMaterialApp(
-      locale: controller.language,
-      translations: MyTransition(),
-      debugShowCheckedModeBanner: false,
-      home: const Homescreen(),
-    );
+    return GetBuilder<LocalController>(
+        init: LocalController(),
+        builder: (controller) {
+          return GetMaterialApp(
+            locale: controller.language,
+            translations: MyTransition(),
+            debugShowCheckedModeBanner: false,
+            home: const Homescreen(),
+          );
+        });
   }
 }
 
-class Homescreen extends StatefulWidget {
+class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
-
-  @override
-  State<Homescreen> createState() => _HomescreenState();
-}
-
-class _HomescreenState extends State<Homescreen> {
-  @override
-  void initState() {
-    SectionClass.getSection();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeScreenControllerImp);
-    Get.put(HomeScreenControllerImp());
-    return GetBuilder<HomeScreenControllerImp>(builder: (controller) {
-      return Directionality(
-        textDirection: LanguageClass.lang.text == "English"
-            ? TextDirection.ltr
-            : TextDirection.rtl,
-        child: Scaffold(
+    return GetBuilder<HomeScreenControllerImp>(
+        init: HomeScreenControllerImp(),
+        builder: (controller) {
+          return Scaffold(
             backgroundColor: Root.bg,
             appBar: AppBar(
               elevation: 0,
@@ -88,8 +74,8 @@ class _HomescreenState extends State<Homescreen> {
               controller: HomeScreenControllerImp.pageController,
               physics: const NeverScrollableScrollPhysics(),
               children: const [HomePage(), Section(), Search(), Profile()],
-            )),
-      );
-    });
+            ),
+          );
+        });
   }
 }

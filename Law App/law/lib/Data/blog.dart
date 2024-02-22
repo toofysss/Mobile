@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 
 class BlogClass {
   static Future getYourRightData() async {

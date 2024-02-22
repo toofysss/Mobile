@@ -9,38 +9,38 @@ class LocalController extends GetxController {
 
   MyServices myServices = Get.find();
 
-// تغيير اللغة
+  // تغيير اللغة
   changeLang(String langcode) {
     Locale locale = Locale(langcode);
     myServices.sharedPreferences.setString("lang", langcode);
+    LanguageClass.lang.text = "$locale";
     Get.updateLocale(locale);
+    Get.back();
   }
 
 // get lang
   getlang() {
-    String? sharedPreferences = myServices.sharedPreferences.getString("lang");
-    if (sharedPreferences == "ar") {
-      language = const Locale("ar");
-      LanguageClass.lang.text = "Arabic";
-    } else if (sharedPreferences == "en") {
-      language = const Locale("en");
-      LanguageClass.lang.text = "English";
+    String? lang = myServices.sharedPreferences.getString("lang");
+    if (lang != null) {
+      language = Locale(lang);
+      Get.updateLocale(language!);
+      LanguageClass.lang.text = lang;
     } else {
       language = Locale(Get.deviceLocale!.languageCode);
-      if (language!.languageCode == "en") {
-        language = const Locale("en");
-        LanguageClass.lang.text = "English";
-      } else {
-        language = const Locale("ar");
-        LanguageClass.lang.text = "Arabic";
-      }
+      LanguageClass.lang.text = Get.deviceLocale!.languageCode;
+      Get.updateLocale(language!);
     }
+  }
+
+  getData() {
+    SectionClass.getSection();
   }
 
 // عند تشغيل التطبيق
   @override
   void onInit() {
     getlang();
+    getData();
     Data.getdata();
     super.onInit();
   }

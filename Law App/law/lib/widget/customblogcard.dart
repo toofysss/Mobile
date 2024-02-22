@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:law/Desing/customcard.dart';
 import 'package:law/Page/blog/blogdetails.dart';
 import 'package:law/class/blog.dart';
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/customloading.dart';
 import 'package:law/widget/customtext.dart';
@@ -27,7 +27,7 @@ class CustomBlogCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: CachedNetworkImage(
-                  imageUrl: "${Config.api}/BlogControll/${blogItem.img}",
+                  imageUrl: "${ApiClass.api}/BlogControll/${blogItem.img}",
                   fit: BoxFit.fill,
                   httpHeaders: const {"accept": "*/*"},
                   width: 150,

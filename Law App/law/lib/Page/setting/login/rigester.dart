@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:law/Data/goverment.dart';
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/alert.dart';
 import 'package:law/widget/backbutton.dart';
@@ -58,7 +58,7 @@ class RigesterController extends GetxController {
     }
     AlertClass.waiting();
 
-    var url = Uri.parse('${Config.api}/LaweysControll/InsertLaweys');
+    var url = Uri.parse('${ApiClass.api}/LaweysControll/InsertLaweys');
     var request = http.MultipartRequest("POST", url);
     request.fields["ID"] = "0";
     request.fields["Name"] = name.text;

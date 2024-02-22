@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:law/Data/homescreen.dart';
 import 'package:law/Page/setting/login/rigester.dart';
-import 'package:law/contant/config.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/services/services.dart';
 import 'package:law/widget/alert.dart';
@@ -20,7 +20,7 @@ class LoginController extends GetxController {
   login() async {
     var response = await http.get(
       Uri.parse(
-          "${Config.api}/UserControll/CheckLogin?email=${username.text}&pass=${pass.text}"),
+          "${ApiClass.api}/UserControll/CheckLogin?email=${username.text}&pass=${pass.text}"),
       headers: const {"accept": "*/*"},
     );
     if (response.statusCode == 200) {
