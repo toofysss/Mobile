@@ -1,0 +1,162 @@
+{
+    "Ahl_alBayt": [
+        {
+            "NameA": "النبي الاعظم محمد صلى الله عليه وسلم",
+            "NameE": "The Greatest Prophet Muhammad (PBUH)",
+            "Date": "17 ربيع الاول",
+            "DeadDate": "28 صفر"
+        },
+        {
+            "NameA": " الامام على بن ابى طالب صلى الله عليه وسلم",
+            "NameE": "Imam Ali bin Abi Talib (PBUH)",
+            "Date": "13 رجب",
+            "DeadDate": "21 رمضان"
+        },
+        {
+            "NameA": "السيدة فاطمة الزهراء عليها السلام",
+            "NameE": "Lady Fatima Al-Zahra (peace be upon her)",
+            "Date": "20 جمادي الاول",
+            "DeadDate": "8 ربيع الثاني \nاو 13 جمادي الاول \nاو 3 جمادي الثانس"
+        },
+        {
+            "NameA": "الامام الحسن بن علي المجتبى عليه السلام",
+            "NameE": "Imam Al-Hassan bin Ali Al-Mujtaba (peace be upon him)",
+            "Date": "15 رمضان",
+            "DeadDate": "7 صفر"
+        },
+        {
+            "NameA": "الامام الحسن بن علي الشهيد عليه السلام",
+            "NameE": "Imam Hassan bin Ali, the martyr (peace be upon him)",
+            "Date": "3 شعبان",
+            "DeadDate": "10 محرم"
+        },
+        {
+            "NameA": "الامام علي بن الحسين السجاد عليه السلام",
+            "NameE": "Imam Ali bin Al-Hussein Al-Sajjad (peace be upon him)",
+            "Date": "5 شعبان",
+            "DeadDate": "25 محرم"
+        },
+        {
+            "NameA": "الامام محمد بن علي الباقر عليه السلام",
+            "NameE": "Imam Muhammad bin Ali Al-Baqir (peace be upon him)",
+            "Date": "1 رجب",
+            "DeadDate": "7 ذو الحجة"
+        },
+        {
+            "NameA": "الامام جعفر بن محمد الصادق عليه السلام",
+            "NameE": "Imam Jaafar bin Muhammad Al-Sadiq (peace be upon him)",
+            "Date": "17 ربيع الاول",
+            "DeadDate": "25 شوال"
+        },
+        {
+            "NameA": "الامام موسى بن جعفر الكاظم عليه السلام",
+            "NameE": "Imam Musa bin Jaafar Al-Kadhim (peace be upon him)",
+            "Date": "7 صفر",
+            "DeadDate": "25 رجب"
+        },
+        {
+            "NameA": "الامام علي بن موسى الرضا عليه السلام",
+            "NameE": "Imam Ali bin Musa Al-Rida (peace be upon him)",
+            "Date": "11 ذو القعدة",
+            "DeadDate": "17 صفر"
+        },
+        {
+            "NameA": "الامام محمد بن علي الجواد عليه السلام",
+            "NameE": "Imam Muhammad bin Ali Al-Jawad (peace be upon him)",
+            "Date": "10 رجب",
+            "DeadDate": "اخر ذي القعدة"
+        },
+        {
+            "NameA": "الامام علي بن محمد الهادي عليه السلام",
+            "NameE": "Imam Ali bin Muhammad al-Hadi (peace be upon him)",
+            "Date": "2 رجب",
+            "DeadDate": "3 رجب"
+        },
+        {
+            "NameA": "الامام الحسن بن علي العسكري عليه السلام",
+            "NameE": "Imam Hassan bin Ali Al-Askari (peace be upon him)",
+            "Date": "8 ربيع الثاني",
+            "DeadDate": "8 ربيع الاول"
+        },
+        {
+            "NameA": "الامام الحجة بن الحسن المهدي عليه السلام",
+            "NameE": "Imam Al-Hujjah bin Al-Hassan Al-Mahdi (peace be upon him)",
+            "Date": "15 شعبان",
+            "DeadDate": "لا يزال حيا بأذن الله تعالى"
+        }
+    ],
+    "Maswomen": [
+        {
+            "NameA": " الامام على بن ابى طالب صلى الله عليه وسلم",
+            "NameE": "Imam Ali bin Abi Talib (PBUH)",
+            "Date": "13 رجب",
+            "DeadDate": "21 رمضان"
+        },
+        {
+            "NameA": "الامام الحسن بن علي المجتبى عليه السلام",
+            "NameE": "Imam Al-Hassan bin Ali Al-Mujtaba (peace be upon him)",
+            "Date": "15 رمضان",
+            "DeadDate": "7 صفر"
+        },
+        {
+            "NameA": "الامام الحسن بن علي الشهيد عليه السلام",
+            "NameE": "Imam Hassan bin Ali, the martyr (peace be upon him)",
+            "Date": "3 شعبان",
+            "DeadDate": "10 محرم"
+        },
+        {
+            "NameA": "الامام علي بن الحسين السجاد عليه السلام",
+            "NameE": "Imam Ali bin Al-Hussein Al-Sajjad (peace be upon him)",
+            "Date": "5 شعبان",
+            "DeadDate": "25 محرم"
+        },
+        {
+            "NameA": "الامام محمد بن علي الباقر عليه السلام",
+            "NameE": "Imam Muhammad bin Ali Al-Baqir (peace be upon him)",
+            "Date": "1 رجب",
+            "DeadDate": "7 ذو الحجة"
+        },
+        {
+            "NameA": "الامام جعفر بن محمد الصادق عليه السلام",
+            "NameE": "Imam Jaafar bin Muhammad Al-Sadiq (peace be upon him)",
+            "Date": "17 ربيع الاول",
+            "DeadDate": "25 شوال"
+        },
+        {
+            "NameA": "الامام موسى بن جعفر الكاظم عليه السلام",
+            "NameE": "Imam Musa bin Jaafar Al-Kadhim (peace be upon him)",
+            "Date": "7 صفر",
+            "DeadDate": "25 رجب"
+        },
+        {
+            "NameA": "الامام علي بن موسى الرضا عليه السلام",
+            "NameE": "Imam Ali bin Musa Al-Rida (peace be upon him)",
+            "Date": "11 ذو القعدة",
+            "DeadDate": "17 صفر"
+        },
+        {
+            "NameA": "الامام محمد بن علي الجواد عليه السلام",
+            "NameE": "Imam Muhammad bin Ali Al-Jawad (peace be upon him)",
+            "Date": "10 رجب",
+            "DeadDate": "اخر ذي القعدة"
+        },
+        {
+            "NameA": "الامام علي بن محمد الهادي عليه السلام",
+            "NameE": "Imam Ali bin Muhammad al-Hadi (peace be upon him)",
+            "Date": "2 رجب",
+            "DeadDate": "3 رجب"
+        },
+        {
+            "NameA": "الامام الحسن بن علي العسكري عليه السلام",
+            "NameE": "Imam Hassan bin Ali Al-Askari (peace be upon him)",
+            "Date": "8 ربيع الثاني",
+            "DeadDate": "8 ربيع الاول"
+        },
+        {
+            "NameA": "الامام الحجة بن الحسن المهدي عليه السلام",
+            "NameE": "Imam Al-Hujjah bin Al-Hassan Al-Mahdi (peace be upon him)",
+            "Date": "15 شعبان",
+            "DeadDate": "لا يزال حيا بأذن الله تعالى"
+        }
+    ]
+}

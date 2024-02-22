@@ -11,13 +11,13 @@ class FavouritePage extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            if (DataClass.favourite.isNotEmpty)
-              Center(
-                child: FavouriteCard(
-                  favouriteBook: DataClass.favourite,
-                ),
-              ),
-            if (DataClass.favourite.isEmpty) const SizedBox()
+            DataClass.favourite.isNotEmpty
+                ? Center(
+                    child: FavouriteCard(
+                      favouriteBook: DataClass.favourite,
+                    ),
+                  )
+                : const SizedBox()
           ],
         ));
   }

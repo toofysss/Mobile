@@ -1,0 +1,396 @@
+{
+    "AlaahName": [
+        {
+            "TitleA": "الرَّحْمَنُ",
+            "TitleE": "Ar Rahmaan"
+        },
+        {
+            "TitleA": "الرَّحِيمُ",
+            "TitleE": "Ar Raheem"
+        },
+        {
+            "TitleA": "الْمَلِكُ",
+            "TitleE": "Al Malik"
+        },
+        {
+            "TitleA": "الْقُدُّوسُ",
+            "TitleE": "Al Quddus"
+        },
+        {
+            "TitleA": "السَّلاَمُ",
+            "TitleE": "As Salaam"
+        },
+        {
+            "TitleA": "الْمُؤْمِنُ",
+            "TitleE": "Al Mu'min"
+        },
+        {
+            "TitleA": "الْمُهَيْمِنُ",
+            "TitleE": "Al Muhaymin"
+        },
+        {
+            "TitleA": "الْعَزِيزُ",
+            "TitleE": "Al Azeez"    },
+        {
+            "TitleA": "الْجَبَّارُ",
+            "TitleE": "Al Jabbaar"   },
+        {
+            "TitleA": "الْمُتَكَبِّرُ",
+            "TitleE": "Al Mutakabbir"    },
+        {
+            "TitleA": "الْخَالِقُ",
+            "TitleE": "Al Khaaliq"
+        },
+        {
+            "TitleA": "الْبَارِئُ",
+            "TitleE": "Al Baari"
+        },
+        {
+            "TitleA": "الْمُصَوِّرُ",
+            "TitleE": "Al Musawwir"
+        },
+        {
+            "TitleA": "الْغَفَّارُ",
+            "TitleE": "Al Ghaffaar"
+        },
+        {
+            "TitleA": "الْقَهَّارُ",
+            "TitleE": "Al Qahhaar"
+        },
+        {
+            "TitleA": "الْوَهَّابُ",
+            "TitleE": "Al Wahhaab"
+        },
+        {
+            "TitleA": "الرَّزَّاقُ",
+            "TitleE": "Ar Razzaaq"
+        },
+        {
+            "TitleA": "الْفَتَّاحُ",
+            "TitleE": "Al Fattaah"
+        },
+        {
+            "TitleA": "اَلْعَلِيْمُ",
+            "TitleE": "Al 'Aleem"
+        },
+        {
+            "TitleA": "الْقَابِضُ",
+            "TitleE": "Al Qaabid"
+        },
+        {
+            "TitleA": "الْبَاسِطُ",
+            "TitleE": "Al Baasit"
+        },
+        {
+            "TitleA": "الْخَافِضُ",
+            "TitleE": "Al Khaafid"
+        },
+        {
+            "TitleA": "الرَّافِعُ",
+            "TitleE": "Ar Raafi'"
+        },
+        {
+            "TitleA": "الْمُعِزُّ",
+            "TitleE": "Al Mu'iz"
+        },
+        {
+            "TitleA": "المُذِلُّ",
+            "TitleE": "Al Mudhil"
+        },
+        {
+            "TitleA": "السَّمِيعُ",
+            "TitleE": "As Samee'"
+        },
+        {
+            "TitleA": "الْبَصِيرُ",
+            "TitleE": "Al Baseer"
+        },
+        {
+            "TitleA": "الْحَكَمُ",
+            "TitleE": "Al Hakam"
+        },
+        {
+            "TitleA": "الْعَدْلُ",
+            "TitleE": "Al 'Adl"
+        },
+        {
+            "TitleA": "اللَّطِيفُ",
+            "TitleE": "Al Lateef"
+        },
+        {
+            "TitleA": "الْخَبِيرُ",
+            "TitleE": "Al Khabeer"
+        },
+        {
+            "TitleA": "الْحَلِيمُ",
+            "TitleE": "Al Haleem"
+        },
+        {
+            "TitleA": "الْعَظِيمُ",
+            "TitleE": "Al 'Azeem"
+        },
+        {
+            "TitleA": "الْغَفُورُ",
+            "TitleE": "Al Ghafoor"
+        },
+        {
+            "TitleA": "الشَّكُورُ",
+            "TitleE": "Ash Shakoor"
+        },
+        {
+            "TitleA": "الْعَلِيُّ",
+            "TitleE": "Al 'Aliyy"
+        },
+        {
+            "TitleA": "الْكَبِيرُ",
+            "TitleE": "Al Kabeer"
+        },
+        {
+            "TitleA": "الْحَفِيظُ",
+            "TitleE": "Al Hafeez"
+        },
+        {
+            "TitleA": "المُقيِت",
+            "TitleE": "Al Muqeet"        },
+        {
+            "TitleA": "الْحسِيبُ",
+            "TitleE": "Al Haseeb"
+        },
+        {
+            "TitleA": "الْجَلِيلُ",
+            "TitleE": "Al Jaleel"
+        },
+        {
+            "TitleA": "الْكَرِيمُ",
+            "TitleE": "Al Kareem"
+        },
+        {
+            "TitleA": "الرَّقِيبُ",
+            "TitleE": "Ar Raqeeb"
+        },
+        {
+            "TitleA": "الْمُجِيبُ",
+            "TitleE": "Al Mujeeb "
+        },
+        {
+            "TitleA": "الْوَاسِعُ",
+            "TitleE": "Al Waasi'"
+        },
+        {
+            "TitleA": "الْحَكِيمُ",
+            "TitleE": "Al Hakeem"
+        },
+        {
+            "TitleA": "الْوَدُودُ",
+            "TitleE": "Al Wudood"
+        },
+        {
+            "TitleA": "الْمَجِيدُ",
+            "TitleE": "Al Majeed"
+        },
+        {
+            "TitleA": "الْبَاعِثُ",
+            "TitleE": "Al Baa'ith"
+        },
+        {
+            "TitleA": "الشَّهِيدُ",
+            "TitleE": "Ash Shaheed"
+        },
+        {
+            "TitleA": "الْحَقُّ",
+            "TitleE": "Al Haqq"
+        },
+        {
+            "TitleA": "الْوَكِيلُ",
+            "TitleE": "Al Wakeel"
+        },
+        {
+            "TitleA": "الْقَوِيُّ",
+            "TitleE": "Al Qawiyy"
+        },
+        {
+            "TitleA": "الْمَتِينُ",
+            "TitleE": "Al Mateen"
+        },
+        {
+            "TitleA": "الْوَلِيُّ",
+            "TitleE": "Al Waliyy"
+        },
+        {
+            "TitleA": "الْحَمِيدُ",
+            "TitleE": "Al Hameed"
+        },
+        {
+            "TitleA": "الْمُحْصِي",
+            "TitleE": "Al Muhsi"
+        },
+        {
+            "TitleA": "الْمُبْدِئُ",
+            "TitleE": "Al Mubdi"
+        },
+        {
+            "TitleA": "الْمُعِيدُ",
+            "TitleE": "Al Mu'eed"
+        },
+        {
+            "TitleA": "الْمُحْيِي",
+            "TitleE": "Al Muhiy"
+        },
+        {
+            "TitleA": "اَلْمُمِيتُ",
+            "TitleE": "Al Mumeet"
+        },
+        {
+            "TitleA": "الْحَيُّ",
+            "TitleE": "Al Haiyy"
+        },
+        {
+            "TitleA": "الْقَيُّومُ",
+            "TitleE": "Al Qayyoom"
+        },
+        {
+            "TitleA": "الْوَاجِدُ",
+            "TitleE": "Al Waajid"
+        },
+        {
+            "TitleA": "الْمَاجِدُ",
+            "TitleE": "Al Maajid"
+        },
+        {
+            "TitleA": "الْواحِدُ",
+            "TitleE": "Al Waahid"
+        },
+        {
+            "TitleA": "اَلاَحَدُ",
+            "TitleE": "Al Ahad"
+        },
+        {
+            "TitleA": "الصَّمَدُ",
+            "TitleE": "As Samad"
+        },
+        {
+            "TitleA": "الْقَادِرُ",
+            "TitleE": "Al Qaadir"
+        },
+        {
+            "TitleA": "الْمُقْتَدِرُ",
+            "TitleE": "Al Muqtadir"
+        },
+        {
+            "TitleA": "الْمُقَدِّمُ",
+            "TitleE": "Al Muqaddim"
+        },
+        {
+            "TitleA": "الْمُؤَخِّرُ",
+            "TitleE": "Al Mu’akhir"
+        },
+        {
+            "TitleA": "الأوَّلُ",
+            "TitleE": "Al Awwal"
+        },
+        {
+            "TitleA": "الآخِرُ",
+            "TitleE": "Al Aakhir"
+        },
+        {
+            "TitleA": "الظَّاهِرُ",
+            "TitleE": "Az Zaahir"
+        },
+        {
+            "TitleA": "الْبَاطِنُ",
+            "TitleE": "Al Baatin"
+        },
+        {
+            "TitleA": "الْوَالِي",
+            "TitleE": "Al Waali"
+        },
+        {
+            "TitleA": "الْمُتَعَالِي",
+            "TitleE": "Al Muta’ali"
+        },
+        {
+            "TitleA": "الْبَرُّ",
+            "TitleE": "Al Barr"
+        },
+        {
+            "TitleA": "التَّوَابُ",
+            "TitleE": "At Tawwaab"
+        },
+        {
+            "TitleA": "الْمُنْتَقِمُ",
+            "TitleE": "Al Muntaqim"
+        },
+        {
+            "TitleA": "العَفُوُّ",
+            "TitleE": "Al Afuww"
+        },
+        {
+            "TitleA": "الرَّؤُوفُ",
+            "TitleE": "Ar Ra’oof"
+        },
+        {
+            "TitleA": "مَالِكُ الْمُلْكِ",
+            "TitleE": "Maalik Ul Mulk"
+        },
+        {
+            "TitleA": "ذُوالْجَلاَلِ وَالإكْرَامِ",
+            "TitleE": "Dhu Al Jalaali Wa Al Ikraam"
+        },
+        {
+            "TitleA": "الْمُقْسِطُ",
+            "TitleE": "Al Muqsit"
+        },
+        {
+            "TitleA": "الْجَامِعُ",
+            "TitleE": "Al Jaami'"
+        },
+        {
+            "TitleA": "الْغَنِيُّ",
+            "TitleE": "Al Ghaniyy"
+        },
+        {
+            "TitleA": "الْمُغْنِي",
+            "TitleE": "Al Mughi"
+        },
+        {
+            "TitleA": "اَلْمَانِعُ",
+            "TitleE": "Al Maani'"
+        },
+        {
+            "TitleA": "الضَّارَّ",
+            "TitleE": "Ad Daaarr"
+        },
+        {
+            "TitleA": "النَّافِعُ",
+            "TitleE": "An Naafi’"
+        },
+        {
+            "TitleA": "النُّورُ",
+            "TitleE": "An Noor"
+        },
+        {
+            "TitleA": "الْهَادِي",
+            "TitleE": "Al Haadi"
+        },
+        {
+            "TitleA": "الْبَدِيعُ",
+            "TitleE": "Al Badi'"
+        },
+        {
+            "TitleA": "اَلْبَاقِي",
+            "TitleE": "Al Baaqi"
+        },
+        {
+            "TitleA": "الْوَارِثُ",
+            "TitleE": "Al Waarith"
+        },
+        {
+            "TitleA": "الرَّشِيدُ",
+            "TitleE": "Ar Rasheed"
+        },
+        {
+            "TitleA": "الصَّبُورُ",
+            "TitleE": "As Saboor"
+        }
+    ]
+}

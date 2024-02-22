@@ -20,11 +20,8 @@ namespace LawApi.Database
         public DbSet<DecisionsCourtCassationDetails> DecisionsCourtCassationDetails { get; set; }
         public DbSet<DecisionsCommand> DecisionsCommand { get; set; }
         public DbSet<CoalitionProvisional> CoalitionProvisional { get; set; }
-        public DbSet<BlogType> BlogType { get; set; }
-        public DbSet<Blog> Blog { get; set; }
         public DbSet<Law> Law { get; set; }
         public DbSet<LawDetails> LawDetails { get; set; }
-        public DbSet<City> City { get; set; }
         public DbSet<Contract> Contract { get; set; }
         public DbSet<Consultation> Consultation { get; set; }
         public DbSet<Laweys> Laweys { get; set; }
@@ -33,8 +30,5 @@ namespace LawApi.Database
         public DbSet<DecisionsFederalSupremeCourt> DecisionsFederalSupremeCourt { get; set; }  
         public DbSet<Discriminatoryregulations> Discriminatoryregulations { get; set; }
         public DbSet<DiscriminatoryregulationsDetails> DiscriminatoryregulationsDetails { get; set; }
-        public DbSet<BooksLegalWritings> BooksLegalWritings { get; set; }
-
-        public DbSet<AnnouncingMoreRealEstate> AnnouncingMoreRealEstate { get; set; }
     }
 }

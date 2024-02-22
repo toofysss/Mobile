@@ -4,23 +4,39 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:law/Data/homescreen.dart';
-import 'package:law/Page/aboutus.dart';
-import 'package:law/Page/login/login.dart';
+import 'package:law/Desing/customsettingdesign.dart';
+import 'package:law/Page/setting/login/login.dart';
+import 'package:law/Page/setting/aboutus.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/localization/changelocal.dart';
 import 'package:law/services/services.dart';
+import 'package:law/widget/alert.dart';
+import 'package:law/widget/backbutton.dart';
 import 'package:law/widget/custombutton.dart';
 import 'package:law/widget/customtext.dart';
-import 'package:restart_app/restart_app.dart';
 
-class Setting extends StatelessWidget {
+class Setting extends StatefulWidget {
   const Setting({super.key});
 
   @override
+  State<Setting> createState() => _SettingState();
+}
+
+class _SettingState extends State<Setting> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: CustomText(
+            color: Theme.of(context).appBarTheme.foregroundColor!,
+            data: "25".tr,
+            size: Root.textsize,
+            textOverflow: TextOverflow.clip),
+        leading: const BackPageButton(),
+      ),
       floatingActionButton: Visibility(
-        visible: Data.laweysID.text.isNotEmpty,
+        visible: Data.laweysID.isNotEmpty,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 70),
           child: SizedBox(
@@ -30,9 +46,8 @@ class Setting extends StatelessWidget {
                   data: "60".tr,
                   ontap: () {
                     MyServices myServices = Get.find();
-                    Data.laweysID.clear();
+                    Data.laweysID = "";
                     myServices.sharedPreferences.remove("lawersID");
-                    Get.appUpdate();
                     Get.forceAppUpdate();
                   })),
         ),
@@ -41,337 +56,147 @@ class Setting extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: CustomText(
-                    color: Root.primary,
-                    data: "25".tr,
-                    size: Root.headersize,
-                    textOverflow: TextOverflow.clip),
-              ),
               Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(width: 1.5, color: Root.primary)),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.secondary,
+                      ]),
+                  borderRadius: BorderRadius.circular(29),
+                  border: Border.all(color: Theme.of(context).cardColor),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 10),
+                      blurRadius: 5,
+                      color: Theme.of(context).shadowColor,
+                    ),
+                  ],
+                ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                   child: Column(
                     children: [
-                      Visibility(
-                        visible: Data.laweysID.text.isEmpty,
-                        child: GestureDetector(
-                          onTap: () => Get.to(() => const Login(),
+                      // Login
+                      CustomSettingDesign(
+                          divider: Data.laweysID.isEmpty,
+                          iconData: Icons.login,
+                          visible: Data.laweysID.isEmpty,
+                          ontap: () => Get.to(() => const Login(),
                               transition: Transition.fadeIn),
-                          child: ListTile(
-                            leading: Icon(
-                              Icons.login,
-                              color: Root.primary,
-                              size: 35,
-                            ),
-                            title: CustomText(
-                              color: Root.primary,
-                              data: "57".tr,
-                              size: Root.textsize,
-                              textOverflow: TextOverflow.clip,
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_right_rounded,
-                              size: Root.headersize + 5,
-                              color: Root.primary,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Visibility(
-                        visible: Data.laweysID.text.isEmpty,
-                        child: Divider(
-                          endIndent: 35,
-                          indent: 35,
-                          thickness: 1.5,
-                          color: Root.primary,
-                        ),
-                      ),
+                          title: "57".tr),
                       // Lang
-                      GestureDetector(
-                        onTap: () => showGeneralDialog(
-                          context: Get.context!,
-                          barrierDismissible: true,
-                          barrierLabel: "",
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  Container(),
-                          transitionDuration: const Duration(milliseconds: 200),
-                          transitionBuilder: (context, a1, a2, child) {
-                            return ScaleTransition(
-                              scale:
-                                  Tween<double>(begin: .5, end: 1).animate(a1),
-                              child: FadeTransition(
-                                opacity: Tween<double>(begin: .5, end: 1)
-                                    .animate(a1),
-                                child: Dialog(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  backgroundColor: Root.backgroundApp,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 15),
-                                        child: Center(
-                                          child: CustomText(
-                                            color: Root.primary,
-                                            data: "29".tr,
-                                            size: Root.headersize,
-                                            textOverflow: TextOverflow.clip,
-                                          ),
-                                        ),
-                                      ),
-                                      // ar radio button
-                                      SizedBox(
-                                        width: Get.width,
-                                        child: RadioListTile(
+                      CustomSettingDesign(
+                          divider: true,
+                          iconData: Icons.language,
+                          visible: true,
+                          ontap: () => AlertClass.showalert(
+                                "29".tr,
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      width: Get.width,
+                                      child: RadioListTile(
                                           title: CustomText(
                                             data: "30".tr,
-                                            color: Root.primary,
+                                            color: Theme.of(context)
+                                                .indicatorColor,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
                                           ),
-                                          activeColor: Root.primary,
-                                          value: "Arabic",
-                                          groupValue: LanguageClass.lang.text,
-                                          onChanged: (Value) {
-                                            LocalController myServices =
-                                                Get.find();
-                                            myServices.changeLang("ar");
-                                            LanguageClass.lang.text = "$Value";
-                                            Restart.restartApp();
-                                          },
-                                        ),
-                                      ),
-                                      // en radio
-                                      SizedBox(
-                                        width: Get.width,
-                                        child: RadioListTile(
+                                          activeColor: Theme.of(context).indicatorColor,
+                                          value: "ar",
+                                          groupValue: Root.lang,
+                                          onChanged: (Value) =>
+                                              AlertClass.changelang("$Value")),
+                                    ),
+                                    // en radio
+                                    SizedBox(
+                                      width: Get.width,
+                                      child: RadioListTile(
                                           title: CustomText(
                                             data: "31".tr,
-                                            color: Root.primary,
+                                            color: Theme.of(context)
+                                                .indicatorColor,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
                                           ),
-                                          activeColor: Root.primary,
-                                          value: "English",
-                                          groupValue: LanguageClass.lang.text,
-                                          onChanged: (Value) {
-                                            LocalController myServices =
-                                                Get.find();
-                                            myServices.changeLang("en");
-                                            LanguageClass.lang.text = "$Value";
-                                            Get.back();
-                                            Restart.restartApp();
-                                          },
-                                        ),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 35, vertical: 10),
-                                        child: GestureDetector(
-                                            child: Center(
-                                          child: CustomButton(
-                                              data: "85".tr,
-                                              ontap: () => Get.back()),
-                                        )),
-                                      )
-                                    ],
-                                  ),
+                                          activeColor: Theme.of(context).indicatorColor,
+                                          value: "en",
+                                          groupValue: Root.lang,
+                                          onChanged: (Value) =>
+                                              AlertClass.changelang("$Value")),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            );
-                          },
-                        ),
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.language,
-                            color: Root.primary,
-                            size: 35,
-                          ),
-                          title: CustomText(
-                            color: Root.primary,
-                            data: "29".tr,
-                            size: Root.textsize,
-                            textOverflow: TextOverflow.clip,
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_right_rounded,
-                            size: Root.headersize + 5,
-                            color: Root.primary,
-                          ),
-                        ),
-                      ),
+                          title: "29".tr),
 
-                      Divider(
-                        endIndent: 35,
-                        indent: 35,
-                        thickness: 1.5,
-                        color: Root.primary,
-                      ),
                       // Change Size
-                      GestureDetector(
-                        onTap: () => showGeneralDialog(
-                          context: Get.context!,
-                          barrierDismissible: true,
-                          barrierLabel: "",
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  Container(),
-                          transitionDuration: const Duration(milliseconds: 200),
-                          transitionBuilder: (context, a1, a2, child) {
-                            return ScaleTransition(
-                              scale:
-                                  Tween<double>(begin: .5, end: 1).animate(a1),
-                              child: FadeTransition(
-                                opacity: Tween<double>(begin: .5, end: 1)
-                                    .animate(a1),
-                                child: Dialog(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  backgroundColor: Root.backgroundApp,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 15),
-                                        child: Center(
-                                          child: CustomText(
-                                            color: Root.primary,
-                                            data: "33".tr,
-                                            size: Root.headersize,
-                                            textOverflow: TextOverflow.clip,
-                                          ),
-                                        ),
-                                      ),
-                                      Slider(
-                                        min: 10,
-                                        max: 40,
-                                        divisions: 10,
-                                        activeColor: Root.primary,
-                                        inactiveColor: Root.primary,
-                                        label: Root.textsize.round().toString(),
-                                        overlayColor:
-                                            MaterialStateProperty.all<Color>(
-                                                Colors.transparent),
-                                        onChanged: (size) {
+                      CustomSettingDesign(
+                          divider: true,
+                          iconData: FontAwesomeIcons.textWidth,
+                          visible: true,
+                          ontap: () => AlertClass.showalert(
+                                "29".tr,
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Slider(
+                                      min: 10,
+                                      max: 40,
+                                      divisions: 10,
+                                      activeColor:
+                                          Theme.of(context).indicatorColor,
+                                      inactiveColor: Theme.of(context)
+                                          .indicatorColor
+                                          .withOpacity(.7),
+                                      label: Root.textsize.round().toString(),
+                                      overlayColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.transparent),
+                                      onChanged: (size) {
+                                        setState(() {
                                           Root.textsize = size;
-                                          LocalController()
-                                              .myServices
-                                              .sharedPreferences
-                                              .setDouble("size", Root.textsize);
-                                          Get.forceAppUpdate();
-                                        },
-                                        value: Root.textsize,
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 35, vertical: 10),
-                                        child: GestureDetector(
-                                            child: Center(
-                                          child: CustomButton(
-                                              data: "85".tr,
-                                              ontap: () => Get.back()),
-                                        )),
-                                      )
-                                    ],
-                                  ),
+                                        });
+                                        Get.forceAppUpdate();
+                                        LocalController()
+                                            .myServices
+                                            .sharedPreferences
+                                            .setDouble("size", Root.textsize);
+                                      },
+                                      value: Root.textsize,
+                                    ),
+                                  ],
                                 ),
                               ),
-                            );
-                          },
-                        ),
-                        child: ListTile(
-                          leading: Icon(
-                            FontAwesomeIcons.textWidth,
-                            color: Root.primary,
-                            size: 35,
-                          ),
-                          title: CustomText(
-                            color: Root.primary,
-                            data: "32".tr,
-                            size: Root.textsize,
-                            textOverflow: TextOverflow.clip,
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_right_rounded,
-                            size: Root.headersize + 5,
-                            color: Root.primary,
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        endIndent: 35,
-                        indent: 35,
-                        thickness: 1.5,
-                        color: Root.primary,
-                      ),
+                          title: "32".tr),
+
                       // Contact Us
-                      GestureDetector(
-                        onTap: () =>
-                            Data.urllauncher("https://wa.me/964${Root.phone}"),
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.headset_mic_rounded,
-                            color: Root.primary,
-                            size: 35,
-                          ),
-                          title: CustomText(
-                            color: Root.primary,
-                            data: "218".tr,
-                            size: Root.textsize,
-                            textOverflow: TextOverflow.clip,
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_right_rounded,
-                            size: Root.headersize + 5,
-                            color: Root.primary,
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        endIndent: 35,
-                        indent: 35,
-                        thickness: 1.5,
-                        color: Root.primary,
-                      ),
+                      CustomSettingDesign(
+                          divider: true,
+                          iconData: Icons.headset_mic_rounded,
+                          visible: true,
+                          ontap: () =>
+                              Data.urllauncher("https://mustafa--cv.web.app/"),
+                          title: "218".tr),
+
                       // About Us
-                      GestureDetector(
-                        onTap: () => Get.to(() => const AboutUs(),
-                            transition: Transition.fadeIn),
-                        child: ListTile(
-                          leading: Icon(
-                            Icons.info_outline,
-                            color: Root.primary,
-                            size: 35,
-                          ),
-                          title: CustomText(
-                            color: Root.primary,
-                            data: "219".tr,
-                            size: Root.textsize,
-                            textOverflow: TextOverflow.clip,
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_right_rounded,
-                            size: Root.headersize + 5,
-                            color: Root.primary,
-                          ),
-                        ),
-                      ),
+                      CustomSettingDesign(
+                          divider: false,
+                          iconData: Icons.info_outline,
+                          visible: true,
+                          ontap: () => Get.to(() => const AboutUs(),
+                              transition: Transition.fadeIn),
+                          title: "219".tr),
                     ],
                   ),
                 ),

@@ -8,43 +8,43 @@ import 'package:law/widget/customtext.dart';
 import 'package:law/widget/customtextfield.dart';
 import 'package:number_to_word_arabic/number_to_word_arabic.dart';
 
-class Insurance extends StatefulWidget {
-  final String title;
-  const Insurance({required this.title, super.key});
-  @override
-  State<Insurance> createState() => _InsuranceState();
+class InsuranceController extends GetxController {
+  String gender = "213".tr;
+
+  TextEditingController laweyrsname = TextEditingController();
+  TextEditingController department = TextEditingController();
+  TextEditingController paynames = TextEditingController();
+  TextEditingController customernames = TextEditingController();
+  TextEditingController useraddress = TextEditingController();
+  TextEditingController customerIDNo = TextEditingController();
+  TextEditingController customernos = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController customeraddress = TextEditingController();
 }
 
-class _InsuranceState extends State<Insurance> {
-  @override
-  void initState() {
-    ContactClass.gender = "213".tr;
-    super.initState();
-  }
+class Insurance extends StatelessWidget {
+  final String title;
+  const Insurance({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Scaffold(
-        backgroundColor: Root.backgroundApp,
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: CustomText(
-                color: Root.primary,
-                data: widget.title,
-                size: Root.headersize,
-                textOverflow: TextOverflow.clip),
-            leading: const BackPageButton()),
-        body: Directionality(
-            textDirection: LanguageClass.lang.text == "English"
-                ? TextDirection.ltr
-                : TextDirection.rtl,
-            child: SingleChildScrollView(
+    return GetBuilder<InsuranceController>(
+        init: InsuranceController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
+                title: CustomText(
+                    color: Theme.of(context).appBarTheme.foregroundColor!,
+                    data: title,
+                    size: Root.textsize,
+                    textOverflow: TextOverflow.clip),
+                leading: const BackPageButton()),
+            body: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              physics: const BouncingScrollPhysics(),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -54,90 +54,72 @@ class _InsuranceState extends State<Insurance> {
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.paynames,
+                          controller: controller.paynames,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "215".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.customernames,
+                          controller: controller.customernames,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "214".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.price,
+                          controller: controller.price,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "204".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.customerIDNo,
+                          controller: controller.customerIDNo,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "123".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.customernos,
+                          controller: controller.customernos,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "206".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.department,
+                          controller: controller.department,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "205".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.customeraddress,
+                          controller: controller.customeraddress,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "39".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.useraddress,
+                          controller: controller.useraddress,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "207".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.laweyrsname,
+                          controller: controller.laweyrsname,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "208".tr),
                     ),
                     Container(
@@ -165,12 +147,12 @@ class _InsuranceState extends State<Insurance> {
                             hint: Center(
                               child: CustomText(
                                   color: Root.primary,
-                                  data: ContactClass.gender,
+                                  data: controller.gender,
                                   textOverflow: TextOverflow.clip,
                                   size: Root.textsize),
                             ),
                             onChanged: (value) {
-                              ContactClass.gender = "$value";
+                              controller.gender = "$value";
                               Get.appUpdate();
                               Get.forceAppUpdate();
                             },
@@ -204,17 +186,17 @@ class _InsuranceState extends State<Insurance> {
                               String formattedDateTime =
                                   "${now.year}/${now.month}/${now.day}";
                               String price =
-                                  Tafqeet.convert(ContactClass.price.text);
+                                  Tafqeet.convert(controller.price.text);
                               ContactClass.insuancePdf(
                                   '( وصل أمانة )',
                                   '''
-${ContactClass.gender} ::  (${ContactClass.price.text}) $price فقط لا غيرها
-اني الموقع ادناه استلمت المبلغ من السيد ${ContactClass.paynames.text} امانة عندي اعيده له متى طلب مني ذلك واعترافا باستلامي الأمانة المذكورة وقعت هذا الوصل بتاريخ $formattedDateTime .
-
-''',
-                                  'الشاهد  \n الاسم \n${ContactClass.useraddress.text}',
-                                  'الشاهد  \n الاسم \n${ContactClass.laweyrsname.text}',
-                                  'الاســـــــــم : ${ContactClass.customernames.text} \nرقم الهوية : ${ContactClass.customerIDNo.text} \nتاريـخـهـــا : ${ContactClass.customernos.text} \nعن إقــرار : ${ContactClass.department.text} \nالــعــنـوان : ${ContactClass.customeraddress.text}',
+        ${controller.gender} ::  (${controller.price.text}) $price فقط لا غيرها
+        اني الموقع ادناه استلمت المبلغ من السيد ${controller.paynames.text} امانة عندي اعيده له متى طلب مني ذلك واعترافا باستلامي الأمانة المذكورة وقعت هذا الوصل بتاريخ $formattedDateTime .
+        
+        ''',
+                                  'الشاهد  \n الاسم \n${controller.useraddress.text}',
+                                  'الشاهد  \n الاسم \n${controller.laweyrsname.text}',
+                                  'الاســـــــــم : ${controller.customernames.text} \nرقم الهوية : ${controller.customerIDNo.text} \nتاريـخـهـــا : ${controller.customernos.text} \nعن إقــرار : ${controller.department.text} \nالــعــنـوان : ${controller.customeraddress.text}',
                                   '',
                                   '',
                                   15);
@@ -222,8 +204,8 @@ ${ContactClass.gender} ::  (${ContactClass.price.text}) $price فقط لا غي�
                   ],
                 ),
               ),
-            )),
-      ),
-    );
+            ),
+          );
+        });
   }
 }

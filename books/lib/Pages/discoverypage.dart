@@ -13,13 +13,52 @@ class DiscoveryPage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 15),
         child: Column(
           children: [
-            CustomListCard(
-                header: "s1".tr, item: DataClass.psychology[0].items!),
-            CustomListCard(header: "s12".tr, item: DataClass.love[0].items!),
-            CustomListCard(header: "s18".tr, item: DataClass.history[0].items!),
-            CustomListCard(
-                header: "s19".tr, item: DataClass.eduction[0].items!),
-            CustomListCard(header: "s21".tr, item: DataClass.science[0].items!),
+            DataClass.psychology.isNotEmpty
+                ? (DataClass.psychology[0].items?.isNotEmpty ?? false)
+                    ? CustomListCard(
+                        header: "s1".tr, item: DataClass.psychology)
+                    : const SizedBox(
+                        height: 290,
+                      )
+                : const SizedBox(
+                    height: 290,
+                  ),
+            DataClass.love.isNotEmpty
+                ? (DataClass.love[0].items?.isNotEmpty ?? false)
+                    ? CustomListCard(header: "s1".tr, item: DataClass.love)
+                    : const SizedBox(
+                        height: 290,
+                      )
+                : const SizedBox(
+                    height: 290,
+                  ),
+            DataClass.history.isNotEmpty
+                ? (DataClass.history[0].items?.isNotEmpty ?? false)
+                    ? CustomListCard(header: "s1".tr, item: DataClass.history)
+                    : const SizedBox(
+                        height: 290,
+                      )
+                : const SizedBox(
+                    height: 290,
+                  ),
+            DataClass.eduction.isNotEmpty
+                ? (DataClass.eduction[0].items?.isNotEmpty ?? false)
+                    ? CustomListCard(header: "s1".tr, item: DataClass.eduction)
+                    : const SizedBox(
+                        height: 290,
+                      )
+                : const SizedBox(
+                    height: 290,
+                  ),
+            DataClass.science.isNotEmpty
+                ? (DataClass.science[0].items?.isNotEmpty ?? false)
+                    ? CustomListCard(header: "s1".tr, item: DataClass.science)
+                    : const SizedBox(
+                        height: 290,
+                      )
+                : const SizedBox(
+                    height: 290,
+                  ),
           ],
         ));
   }

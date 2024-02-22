@@ -14,12 +14,13 @@ class CustomButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), color: Root.primary),
+            borderRadius: BorderRadius.circular(50),
+            color: Theme.of(context).indicatorColor),
         child: Center(
           child: CustomText(
-              color: Root.secondry,
+              color: Theme.of(context).primaryColor,
               data: data,
-              size: Root.headersize,
+              size: Root.textsize,
               textOverflow: TextOverflow.clip),
         ),
       ),

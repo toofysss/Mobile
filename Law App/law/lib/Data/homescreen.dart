@@ -22,13 +22,12 @@ class ListBottom {
 class Data {
   static bool online = true;
   static bool isSearching = false;
-  static TextEditingController laweysID = TextEditingController();
+  static String laweysID = "";
   static List<ListBottom> listitem = [
     ListBottom(title: "1".tr, iconData: Icons.balance_outlined),
     ListBottom(title: "2".tr, iconData: FontAwesomeIcons.newspaper),
     ListBottom(title: "4".tr, iconData: FontAwesomeIcons.userTie),
     ListBottom(title: "5".tr, iconData: FontAwesomeIcons.layerGroup),
-    ListBottom(title: "25".tr, iconData: FontAwesomeIcons.gear),
   ];
 
   static urllauncher(String url) async {

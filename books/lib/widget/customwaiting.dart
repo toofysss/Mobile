@@ -1,6 +1,5 @@
 import 'package:books/constant/root.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class CustomWaiting extends StatelessWidget {
@@ -8,10 +7,6 @@ class CustomWaiting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.only(
-          top: Get.width * .4,
-        ),
-        child: Lottie.asset(Root.search, fit: BoxFit.fill));
+    return Lottie.asset(Root.search, fit: BoxFit.fill);
   }
 }

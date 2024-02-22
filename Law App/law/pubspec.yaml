@@ -36,6 +36,8 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   searchbar_animation: ^0.0.4
   anim_search_bar: ^2.0.3
+  dot_navigation_bar: ^1.0.2
+  flashy_tab_bar2: ^0.0.6
 
 dev_dependencies:
   flutter_test:
@@ -46,4 +48,5 @@ flutter:
   uses-material-design: true
   assets:
     - image/
+    - image/Data/
     - image/template.docx

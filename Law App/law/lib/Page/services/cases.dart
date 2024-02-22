@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:law/Data/services.dart';
 import 'package:law/class/datahelper.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/alert.dart';
@@ -11,61 +10,69 @@ import 'package:law/widget/customnonotes.dart';
 import 'package:law/widget/customtext.dart';
 import 'package:law/widget/customtextfield.dart';
 
+class CasesController extends GetxController {
+  TextEditingController type = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController date = TextEditingController();
+  List casesData = [];
+
+  Future getcasec() async {
+    casesData = await DBHelper().getCases();
+    update();
+  }
+}
+
 class Cases extends StatelessWidget {
   const Cases({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          backgroundColor: Root.backgroundApp,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: CustomText(
-                color: Root.primary,
-                data: "74".tr,
-                size: Root.headersize,
-                textOverflow: TextOverflow.ellipsis),
-            leading: const BackPageButton(),
-            actions: [
-              GestureDetector(
-                onTap: () => Get.to(
-                    () => const ADDCases(
-                          edit: false,
-                          id: {},
-                        ),
-                    transition: Transition.fadeIn),
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-                  decoration: BoxDecoration(
-                    color: Root.primary,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.add,
-                      size: Root.headersize,
-                      color: Root.secondry,
+    return GetBuilder<CasesController>(
+        init: CasesController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+              elevation: 0,
+              backgroundColor: Colors.transparent,
+              centerTitle: true,
+              title: CustomText(
+                  color: Theme.of(context).appBarTheme.foregroundColor!,
+                  data: "74".tr,
+                  size: Root.textsize,
+                  textOverflow: TextOverflow.ellipsis),
+              leading: const BackPageButton(),
+              actions: [
+                GestureDetector(
+                  onTap: () => Get.to(
+                      () => const ADDCases(
+                            edit: false,
+                            id: {},
+                          ),
+                      transition: Transition.fadeIn),
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).indicatorColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.add,
+                        size: Root.iconsSize,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            child: Directionality(
-                textDirection: LanguageClass.lang.text == "English"
-                    ? TextDirection.ltr
-                    : TextDirection.rtl,
+              ],
+            ),
+            body: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
                 child: Center(
-                  child: CasesClass.casesData.isEmpty
+                  child: controller.casesData.isEmpty
                       ? const Center(
                           child: CustomNoNotes(),
                         )
@@ -79,26 +86,26 @@ class Cases extends StatelessWidget {
                               child: DataTable(
                                 headingRowColor: MaterialStateColor.resolveWith(
                                   (states) {
-                                    return Root.primary;
+                                    return Theme.of(context).indicatorColor;
                                   },
                                 ),
                                 dataRowMaxHeight: 75,
                                 columns: [
                                   DataColumn(
                                       label: CustomText(
-                                          color: Root.secondry,
+                                          color: Theme.of(context).primaryColor,
                                           data: "78".tr,
                                           size: Root.textsize,
                                           textOverflow: TextOverflow.clip)),
                                   DataColumn(
                                       label: CustomText(
-                                          color: Root.secondry,
+                                          color: Theme.of(context).primaryColor,
                                           data: "79".tr,
                                           size: Root.textsize,
                                           textOverflow: TextOverflow.clip)),
                                   DataColumn(
                                       label: CustomText(
-                                          color: Root.secondry,
+                                          color: Theme.of(context).primaryColor,
                                           data: "80".tr,
                                           size: Root.textsize,
                                           textOverflow: TextOverflow.clip)),
@@ -106,16 +113,16 @@ class Cases extends StatelessWidget {
                                   DataColumn(label: Container())
                                 ],
                                 rows: List.generate(
-                                  CasesClass.casesData.length,
+                                  controller.casesData.length,
                                   (rowIndex) => DataRow(
                                     cells: [
                                       DataCell(
                                         SizedBox(
                                           width: Get.width * .2,
                                           child: CustomText(
-                                            color: Root.primary,
+                                            color: Theme.of(context).focusColor,
                                             data:
-                                                "${CasesClass.casesData[rowIndex]["type"]}",
+                                                "${controller.casesData[rowIndex]["type"]}",
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
                                           ),
@@ -125,8 +132,8 @@ class Cases extends StatelessWidget {
                                         SizedBox(
                                           width: Get.width * .15,
                                           child: CustomText(
-                                            color: Root.primary,
-                                            data: CasesClass.casesData[rowIndex]
+                                            color: Theme.of(context).focusColor,
+                                            data: controller.casesData[rowIndex]
                                                 ["price"]!,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
@@ -137,8 +144,8 @@ class Cases extends StatelessWidget {
                                         SizedBox(
                                           width: Get.width * .15,
                                           child: CustomText(
-                                            color: Root.primary,
-                                            data: CasesClass.casesData[rowIndex]
+                                            color: Theme.of(context).focusColor,
+                                            data: controller.casesData[rowIndex]
                                                 ["date"]!,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
@@ -148,16 +155,16 @@ class Cases extends StatelessWidget {
                                       DataCell(
                                         GestureDetector(
                                           onTap: () {
-                                            CasesClass.price.text = CasesClass
+                                            controller.price.text = controller
                                                 .casesData[rowIndex]["price"]!;
-                                            CasesClass.date.text = CasesClass
+                                            controller.date.text = controller
                                                 .casesData[rowIndex]["date"]!;
-                                            CasesClass.type.text = CasesClass
+                                            controller.type.text = controller
                                                 .casesData[rowIndex]["type"]!;
                                             Get.to(
                                                 () => ADDCases(
                                                       edit: true,
-                                                      id: CasesClass
+                                                      id: controller
                                                           .casesData[rowIndex],
                                                     ),
                                                 transition: Transition.fadeIn);
@@ -167,13 +174,15 @@ class Cases extends StatelessWidget {
                                             margin: const EdgeInsets.symmetric(
                                                 vertical: 5, horizontal: 8),
                                             decoration: BoxDecoration(
-                                              color: Root.primary,
+                                              color: Theme.of(context)
+                                                  .indicatorColor,
                                               shape: BoxShape.circle,
                                             ),
                                             child: Center(
                                               child: Icon(
                                                 FontAwesomeIcons.penToSquare,
-                                                color: Colors.white,
+                                                color: Theme.of(context)
+                                                    .primaryColor,
                                                 size: Root.iconsSize,
                                               ),
                                             ),
@@ -183,9 +192,9 @@ class Cases extends StatelessWidget {
                                       DataCell(
                                         GestureDetector(
                                           onTap: () {
-                                            DBHelper().deleteCases(CasesClass
+                                            DBHelper().deleteCases(controller
                                                 .casesData[rowIndex]['id']);
-                                            CasesClass.getcasec();
+                                            controller.getcasec();
                                             AlertClass.success("48".tr);
                                             Get.forceAppUpdate();
                                             Get.appUpdate();
@@ -216,8 +225,8 @@ class Cases extends StatelessWidget {
                           ],
                         ),
                 )),
-          ),
-        ));
+          );
+        });
   }
 }
 
@@ -228,25 +237,24 @@ class ADDCases extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          backgroundColor: Root.backgroundApp,
-          appBar: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              title: CustomText(
-                  color: Root.primary,
-                  data: "74".tr,
-                  size: Root.headersize,
-                  textOverflow: TextOverflow.ellipsis),
-              leading: const BackPageButton()),
-          body: Directionality(
-              textDirection: LanguageClass.lang.text == "English"
-                  ? TextDirection.ltr
-                  : TextDirection.rtl,
-              child: SingleChildScrollView(
+    CasesController controller = Get.put(CasesController());
+    controller.getcasec();
+    return GetBuilder<CasesController>(
+        init: controller,
+        builder: (controller) {
+          return Scaffold(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              appBar: AppBar(
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  centerTitle: true,
+                  title: CustomText(
+                      color: Theme.of(context).appBarTheme.foregroundColor!,
+                      data: "74".tr,
+                      size: Root.textsize,
+                      textOverflow: TextOverflow.ellipsis),
+                  leading: const BackPageButton()),
+              body: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Center(
                   child: Column(
@@ -255,66 +263,62 @@ class ADDCases extends StatelessWidget {
                     children: [
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
                         child: CustomTextField(
-                            onChanged: (s) {},
                             textInputType: TextInputType.name,
-                            controller: CasesClass.type,
+                            controller: controller.type,
                             maxline: 1,
-                            maxlength: 100,
                             hints: "78".tr),
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
                         child: CustomTextField(
-                            onChanged: (s) {},
                             textInputType: TextInputType.name,
-                            controller: CasesClass.price,
+                            controller: controller.price,
                             maxline: 1,
-                            maxlength: 100,
                             hints: "79".tr),
                       ),
                       Container(
                         margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
                         child: CustomTextField(
-                            onChanged: (s) {},
                             textInputType: TextInputType.name,
-                            controller: CasesClass.date,
+                            controller: controller.date,
                             maxline: 1,
-                            maxlength: 100,
                             hints: "80".tr),
                       ),
                       SizedBox(
-                        width: Get.width * .8,
+                        width: Get.width * .4,
                         child: CustomButton(
                             data: "82".tr,
                             ontap: () {
                               if (edit != true) {
                                 DBHelper().insertcases(
-                                  CasesClass.type.text,
-                                  CasesClass.price.text,
-                                  CasesClass.date.text,
+                                  controller.type.text,
+                                  controller.price.text,
+                                  controller.date.text,
                                 );
-                                CasesClass.getcasec();
+                                controller.getcasec();
 
                                 AlertClass.success("48".tr);
                               } else {
-                                DBHelper().updatecases(id['id']);
-                                CasesClass.getcasec();
+                                DBHelper().updatecases(
+                                  id['id'],
+                                  controller.type.text,
+                                  controller.price.text,
+                                  controller.date.text,
+                                );
+                                controller.getcasec();
 
                                 AlertClass.success("48".tr);
                               }
-                              CasesClass.clear();
-                              Get.forceAppUpdate();
-                              Get.appUpdate();
                             }),
                       )
                     ],
                   ),
                 ),
-              )),
-        ));
+              ));
+        });
   }
 }

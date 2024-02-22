@@ -27,27 +27,26 @@ class StartPage extends StatelessWidget {
     return GetBuilder<LocalController>(builder: (controller) {
       return GetMaterialApp(
         theme: ThemeData(
-          brightness: Brightness.light,
-          primaryColor: ThemeDataClass.textLight,
+          primaryColor: ThemeDataClass.textDark,
           splashColor: Colors.transparent,
           scaffoldBackgroundColor: const Color(0xffF2F6FB),
           // border of container
           cardColor: Colors.white,
           // shadow of container
           shadowColor: const Color(0xFFD3D3D3)..withOpacity(.84),
-          iconTheme: IconThemeData(color: ThemeDataClass.textLight),
+          iconTheme: const IconThemeData(color: Color(0xff38499e)),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              selectedItemColor: Colors.red, backgroundColor: Colors.black),
+              selectedItemColor: Colors.white,
+              backgroundColor: Color(0xff38499e)),
           // Color of gradient container
           colorScheme: const ColorScheme.light(
             primary: Colors.white,
             secondary: Colors.white,
-            brightness: Brightness.light,
           ),
           // text Color
           focusColor: ThemeDataClass.textLight,
           // Button Color
-          indicatorColor: Colors.blue,
+          indicatorColor: const Color(0xff38499e),
         ),
         themeMode: Root.themeMode,
         darkTheme: ThemeData(
@@ -119,3 +118,4 @@ class FirstPage extends StatelessWidget {
     });
   }
 }
+

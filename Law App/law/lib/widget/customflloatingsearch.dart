@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:law/contant/root.dart';
 import 'package:searchbar_animation/searchbar_animation.dart';
 
 class CustomFloatingSearch extends StatelessWidget {
@@ -21,20 +20,19 @@ class CustomFloatingSearch extends StatelessWidget {
       child: SearchBarAnimation(
         enableKeyboardFocus: true,
         isOriginalAnimation: true,
-        searchBoxBorderColour: Root.primary,
+        searchBoxBorderColour: Theme.of(context).indicatorColor,
         enableButtonShadow: false,
         buttonElevation: 0,
         enableBoxShadow: true,
         enableBoxBorder: true,
         enableButtonBorder: true,
-        buttonBorderColour: Root.primary,
+        buttonBorderColour: Theme.of(context).indicatorColor,
         durationInMilliSeconds: 100,
         hintText: hint,
         textAlignToRight: true,
-        isSearchBoxOnRightSide: true,
-        buttonShadowColour: Root.primary,
+        buttonShadowColour: Theme.of(context).indicatorColor,
         onChanged: onchnage,
-        buttonColour: Root.primary,
+        buttonColour: Theme.of(context).indicatorColor,
         textEditingController: controller,
         trailingWidget: GestureDetector(
           onTap: () {
@@ -46,21 +44,21 @@ class CustomFloatingSearch extends StatelessWidget {
           },
           child: Icon(
             Icons.close,
-            color: Root.primary,
+            color: Theme.of(context).indicatorColor,
             size: 28,
           ),
         ),
         secondaryButtonWidget: Center(
           child: Icon(
             Icons.arrow_back_ios_new,
-            color: Root.secondry,
+            color: Theme.of(context).primaryColor,
             size: 28,
           ),
         ),
         buttonWidget: Center(
           child: Icon(
             Icons.search,
-            color: Root.secondry,
+            color: Theme.of(context).primaryColor,
             size: 28,
           ),
         ),

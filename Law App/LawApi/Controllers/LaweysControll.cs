@@ -18,87 +18,19 @@ namespace LawApi.Controllers
 
         public LaweysControll(ApplicationDbContext logger) => _context = logger;
         
-        [HttpGet("GetAll")]
-        public ActionResult<IEnumerable<Laweys>> Get(int id)
-        {
-            var city = _context.City.FirstOrDefault(x => x.ID == id);
-            if (city == null) return NotFound();
-
-            var sectionsWithDataNotes = _context.City.Include(x => x.laweys).ToList();
-            var transformedData = sectionsWithDataNotes.Select(w => new
-            {
-                w.ID,
-                w.Dscrp,
-                w.DscrpE,
-
-                Details = w.laweys.Where(x => x.Status == 1).OrderByDescending(x=>x.Rating).Select(c => new
-                {
-                    c.ID,
-                    c.City,
-                    c.Depart,
-                    c.Dscrp,
-                    c.Img,
-                    c.Name,
-                    c.Phone,
-                    c.Rating,
-                    c.Room,
-                }).ToList()
-            });
-            return Ok(transformedData);
-
-        }
-        [HttpGet("GetAllS")]
+       [HttpGet("GetAllS")]
         public ActionResult<IEnumerable<Laweys>> GetAll()
-        {
-          
+        {         
             return Ok(_context.Laweys.OrderByDescending(x=>x.ID));
-
         }
         [HttpGet("GetBy")]
         public ActionResult<IEnumerable<Laweys>> GetBy(string depart, string govermentID, string room)
         {
-            var query = _context.City.FirstOrDefault(x=>x.Dscrp == govermentID);
-            if (query == null)return NotFound("City not found");
-            
             IQueryable<Laweys> laweys = _context.Laweys;
-
-            if (!string.IsNullOrEmpty(depart))
-            {
-                laweys = laweys.Where(l => l.Depart == depart);
-            }
-
-           
-
-            if (!string.IsNullOrEmpty(room))
-            {
-                laweys = laweys.Where(l => l.Room == room);
-            }
-            if (!string.IsNullOrEmpty(govermentID))
-            {
-                laweys = laweys.Where(l => l.CityID == query.ID);
-            }
-
-            var sectionsWithDataNotes = _context.City.Where(x => x.Dscrp == govermentID).Include(x => x.laweys).ToList();
-            var transformedData = sectionsWithDataNotes.Select(w => new
-            {
-                w.ID,
-                w.Dscrp,
-                w.DscrpE,
-
-                Details = laweys.Where(x => x.Status == 1).Select(c => new
-                {
-                    c.ID,
-                    c.City,
-                    c.Depart,
-                    c.Dscrp,
-                    c.Img,
-                    c.Name,
-                    c.Phone,
-                    c.Rating,
-                    c.Room,
-                }).ToList()
-            });
-            return Ok(transformedData);
+            if (!string.IsNullOrEmpty(depart))laweys = laweys.Where(l => l.Depart == depart);   
+            if (!string.IsNullOrEmpty(room)) laweys = laweys.Where(l => l.Room == room);
+            if (!string.IsNullOrEmpty(govermentID)) laweys = laweys.Where(l => l.CityID.ToString() == govermentID);            
+            return Ok(laweys.Where(x => x.Status == 1));
             
         }
         [HttpPost("InsertLaweys")]

@@ -59,14 +59,7 @@ class Category extends StatelessWidget {
                               vertical: 10,
                             ),
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Theme.of(context).colorScheme.primary,
-                                  Theme.of(context).colorScheme.secondary,
-                                ],
-                              ),
+                              color: Theme.of(context).colorScheme.secondary,
                               borderRadius: BorderRadius.circular(29),
                               border: Border.all(
                                   color: Theme.of(context).cardColor),
@@ -102,63 +95,6 @@ class Category extends StatelessWidget {
               ),
             ),
           )
-          //    GridView.count(
-          //     crossAxisCount: 3,
-          //     scrollDirection: Axis.horizontal,
-          //     padding:
-          //         const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          //     children:List.generate(category.length, (index) => GestureDetector(
-          //       onTap: () {
-          //         DataClass.searchData(HomeClass.search.text);
-          //         HomeClass.search.text = category[index].title;
-          //         Get.to(
-          //             () => const SearchPage(
-          //                   view: true,
-          //                 ),
-          //             transition: Transition.fadeIn);
-          //       },
-          //       child: Expanded(
-          //         child: Container(
-          //           padding: const EdgeInsets.symmetric(
-          //               horizontal: 10, vertical: 10),
-          //           decoration: BoxDecoration(
-          //             gradient: LinearGradient(
-          //               begin: Alignment.topLeft,
-          //               end: Alignment.bottomRight,
-          //               colors: [
-          //                 Theme.of(context).colorScheme.primary,
-          //                 Theme.of(context).colorScheme.secondary,
-          //               ],
-          //             ),
-          //             borderRadius: BorderRadius.circular(29),
-          //             border: Border.all(color: Theme.of(context).cardColor),
-          //             boxShadow: [
-          //               BoxShadow(
-          //                 offset: const Offset(0, 10),
-          //                 blurRadius: 5,
-          //                 color: Theme.of(context).shadowColor,
-          //               ),
-          //             ],
-          //           ),
-          //           child: Row(
-          //             children: [
-          //               Icon(
-          //                 category[index].iconData,
-          //                 size: Root.iconsize,
-          //                 color: Theme.of(context).iconTheme.color,
-          //               ),
-          //               const SizedBox(width: 10),
-          //               CustomText(
-          //                 color: Theme.of(context).focusColor,
-          //                 size: Root.fontsize + 5,
-          //                 data: category[index].title,
-          //               ),
-          //             ],
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //  )),)
         ],
       );
 }

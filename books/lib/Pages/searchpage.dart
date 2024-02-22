@@ -61,7 +61,13 @@ class SearchPage extends StatelessWidget {
                       favouriteBook: DataClass.search[0].items!,
                     ),
                   ),
-                if (HomeClass.search.text.isEmpty) const CustomWaiting()
+                if (HomeClass.search.text.isEmpty)
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: Get.width * .4,
+                    ),
+                    child: const CustomWaiting(),
+                  )
               ],
             ),
           ),

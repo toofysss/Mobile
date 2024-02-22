@@ -31,7 +31,7 @@ namespace LawApi.Controllers
         }
 
         [HttpPost("Insert")]
-        public ActionResult<IEnumerable<Blog>> Insert([FromBody] Books Books)
+        public ActionResult<IEnumerable<Books>> Insert([FromBody] Books Books)
         {
             _context.Books.Add(Books);
             _context.SaveChanges();

@@ -1,0 +1,101 @@
+{
+    "tasabeh": [
+        {
+            "NameA": "سُبْحَانَ اللَّهِ",
+            "NameE": "Glory be to God",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+            "NameE": "Glory be to God and praise be to Him",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ",
+            "NameE": "Glory be to God and praise be to God",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ اللهِ العَظِيمِ وَبِحَمْدِهِ",
+            "NameE": "Glory be to God Almighty and praise be to Him",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+            "NameE": "Glory be to God and praise be to Him, Glory be to God Almighty",
+            "Count": 100
+        },
+        {
+            "NameA": "لَا إلَه إلّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلُّ شَيْءِ قَدِيرِ.",
+            "NameE": "There is no god but God alone, with no partner. To Him belongs dominion and to Him is praise, and He is capable of all things.",
+            "Count": 100
+        },
+        {
+            "NameA": "لا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ",
+            "NameE": "There is no power nor strength except in God",
+            "Count": 100
+        },
+        {
+            "NameA": "الْحَمْدُ للّهِ رَبِّ الْعَالَمِينَ",
+            "NameE": "Praise be to God, Lord of the worlds",
+            "Count": 100
+        },
+        {
+            "NameA": "الْلَّهُم صَلِّ وَسَلِم وَبَارِك عَلَى سَيِّدِنَا مُحَمَّد",
+            "NameE": "O God, may your blessings and peace be upon our master Muhammad",
+            "Count": 100
+        },
+        {
+            "NameA": "أستغفر الله",
+            "NameE": "I ask forgiveness from God",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ الْلَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا الْلَّهُ، وَالْلَّهُ أَكْبَرُ",
+            "NameE": "Glory be to God, praise be to God, there is no god but God, and God is great.",
+            "Count": 100
+        },
+        {
+            "NameA": "لَا إِلَهَ إِلَّا اللَّهُ",
+            "NameE": "There is no god but Allah",
+            "Count": 100
+        },
+        {
+            "NameA": "الْلَّهُ أَكْبَرُ",
+            "NameE": "God is Great",
+            "Count": 100
+        },
+        {
+            "NameA": "سُبْحَانَ اللَّهِ ، وَالْحَمْدُ لِلَّهِ ، وَلا إِلَهَ إِلا اللَّهُ ، وَاللَّهُ أَكْبَرُ ، اللَّهُمَّ اغْفِرْ لِي ، اللَّهُمَّ ارْحَمْنِي ، اللَّهُمَّ ارْزُقْنِي.",
+            "NameE": "Glory be to God, praise be to God, there is no god but God, and God is great. O God, forgive me, O God, have mercy on me, O God, grant me.",
+            "Count": 100
+        },
+        {
+            "NameA": "اللَّهُ أَكْبَرُ كَبِيرًا ، وَالْحَمْدُ لِلَّهِ كَثِيرًا ، وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً.",
+            "NameE": "God is most great, and praise be to God greatly, and glory be to God tomorrow and at evening.",
+            "Count": 100
+        },
+        {
+            "NameA": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ , وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ , اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ.",
+            "NameE": "O God, bless Muhammad and the family of Muhammad as You blessed Abraham and the family of Abraham. Indeed, You are Praiseworthy and Glorious. O God, bless Muhammad and the family of Muhammad in abundance. You have blessed Abraham and the family of Abraham. Indeed, You are Praiseworthy and Glorious.",
+            "Count": 100
+        }
+    ],
+    "TasabehAlzahra": [
+        {
+            "NameA": "الله أكبر",
+            "NameE": "God is Great",
+            "Count": 34
+        },
+        {
+            "NameA": "الحمد لله",
+            "NameE": "Praise be to God",
+            "Count": 33
+        },
+        {
+            "NameA": "سبحان الله",
+            "NameE": "Glory be to God",
+            "Count": 33
+        }
+    ]
+}

@@ -18,7 +18,7 @@ class BlogDetails extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
-        backgroundColor: Root.backgroundApp,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.transparent,
@@ -58,7 +58,7 @@ class BlogDetails extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 15),
                       child: CustomText(
-                          color: Root.secondry,
+                          color: Theme.of(context).focusColor,
                           data: "${item.title}",
                           size: Root.textsize,
                           textOverflow: TextOverflow.clip),
@@ -71,8 +71,8 @@ class BlogDetails extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                           vertical: 5, horizontal: 10),
                       decoration: BoxDecoration(
-                        color: Root.backgroundApp,
-                        border: Border.all(width: 1.5, color: Root.secondry),
+                        color: Theme.of(context).indicatorColor,
+                        border: Border.all(width: 1.5, color: Theme.of(context).indicatorColor),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: SingleChildScrollView(

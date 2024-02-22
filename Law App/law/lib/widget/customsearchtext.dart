@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:law/contant/root.dart';
 import 'package:law/widget/customtext.dart';
 
@@ -22,16 +21,16 @@ class CustomTextSearch extends StatelessWidget {
     return showsearch
         ? AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            width: Get.width * (showsearch ? 0.8 : 0.0),
             child: Material(
               elevation: 6,
-              shadowColor: Colors.transparent,
+              shadowColor: Theme.of(context).shadowColor,
               borderRadius: BorderRadius.circular(30),
               child: Directionality(
                 textDirection: TextDirection.rtl,
                 child: TextField(
-                    autofocus: true,
+                    // autofocus: true,
                     controller: controller,
+                    textAlign: TextAlign.start,
                     style: TextStyle(
                         fontSize: Root.textsize - 3,
                         color: Root.primary,
@@ -55,9 +54,9 @@ class CustomTextSearch extends StatelessWidget {
             child: Directionality(
             textDirection: TextDirection.rtl,
             child: CustomText(
-                color: Root.primary,
+                color: Theme.of(context).appBarTheme.foregroundColor!,
                 data: title,
-                size: Root.headersize,
+                size: Root.textsize,
                 textOverflow: TextOverflow.ellipsis),
           ));
   }

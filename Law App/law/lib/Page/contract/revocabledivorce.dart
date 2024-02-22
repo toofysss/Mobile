@@ -7,33 +7,48 @@ import 'package:law/widget/custombutton.dart';
 import 'package:law/widget/customtext.dart';
 import 'package:law/widget/customtextfield.dart';
 
+class RevocableDivorceController extends GetxController {
+  TextEditingController laweyrsname = TextEditingController();
+  TextEditingController laweyrsaddress = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController useraddress = TextEditingController();
+  TextEditingController total = TextEditingController();
+  TextEditingController dscrp = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController payname = TextEditingController();
+  TextEditingController payhome = TextEditingController();
+  TextEditingController payahalla = TextEditingController();
+  TextEditingController payalley = TextEditingController();
+  TextEditingController userhome = TextEditingController();
+  TextEditingController userahalla = TextEditingController();
+  TextEditingController useralley = TextEditingController();
+
+ 
+}
+
 class RevocableDivorce extends StatelessWidget {
   final String title;
   const RevocableDivorce({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Scaffold(
-        backgroundColor: Root.backgroundApp,
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: CustomText(
-                color: Root.primary,
-                data: title,
-                size: Root.headersize,
-                textOverflow: TextOverflow.clip),
-            leading: const BackPageButton()),
-        body: Directionality(
-            textDirection: LanguageClass.lang.text == "English"
-                ? TextDirection.ltr
-                : TextDirection.rtl,
-            child: SingleChildScrollView(
+    return GetBuilder<RevocableDivorceController>(
+        init: RevocableDivorceController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
+                title: CustomText(
+                    color: Theme.of(context).appBarTheme.foregroundColor!,
+                    data: title,
+                    size: Root.textsize,
+                    textOverflow: TextOverflow.clip),
+                leading: const BackPageButton()),
+            body: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              physics: const BouncingScrollPhysics(),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -60,40 +75,32 @@ class RevocableDivorce extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.payname,
+                                controller: controller.payname,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "139".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.payahalla,
+                                controller: controller.payahalla,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "141".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.payalley,
+                                controller: controller.payalley,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "142".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.payhome,
+                                controller: controller.payhome,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "143".tr),
                           ),
                         ],
@@ -120,40 +127,32 @@ class RevocableDivorce extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.username,
+                                controller: controller.username,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "140".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.userahalla,
+                                controller: controller.userahalla,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "141".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.useralley,
+                                controller: controller.useralley,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "176".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.userhome,
+                                controller: controller.userhome,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "143".tr),
                           ),
                         ],
@@ -180,20 +179,16 @@ class RevocableDivorce extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.laweyrsname,
+                                controller: controller.laweyrsname,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "148".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.laweyrsaddress,
+                                controller: controller.laweyrsaddress,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "143".tr),
                           ),
                         ],
@@ -220,20 +215,16 @@ class RevocableDivorce extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.useraddress,
+                                controller: controller.useraddress,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "148".tr),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             child: CustomTextField(
                                 textInputType: TextInputType.name,
-                                onChanged: (s) {},
-                                controller: ContactClass.total,
+                                controller: controller.total,
                                 maxline: 1,
-                                maxlength: 1,
                                 hints: "143".tr),
                           ),
                         ],
@@ -243,20 +234,16 @@ class RevocableDivorce extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.dscrp,
+                          controller: controller.dscrp,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "152".tr),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.price,
+                          controller: controller.price,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "153".tr),
                     ),
                     Container(
@@ -267,13 +254,13 @@ class RevocableDivorce extends StatelessWidget {
                             ontap: () {
                               ContactClass.createPdf(
                                   'بسم الله الرحمن الرحيم\n(( ورقة الطلاق الرجعي))',
-                                  "الحمد لله الذي شرع واحل الطلاق لحسم النزاع وجعله نوعاً من أنواع المصالحة للعباد حيث قال الرسول الأمين (ص) ( الطلاق بين من اخذ بالساق ) وصل الله على محمد وعلى اله وصحبه إلى يـــــــــــــــوم الديـــــــن . وبعــــــــــــــد لقــــــــــد حضـــــــــــــــــر الرجـــــــــــــــــل المســـــــــــــــــــــــمى (${ContactClass.payname.text}) وطلــــــــــب طـــــلاق زوجتـــــــــــــــه      (${ContactClass.username.text}) وهو بكامل قواه العقلية وبعد الإرشاد والنصيحة فأصر على الطـــــــــلاق الرجعي وذلك لعــــــدم انسجام الحياة الزوجية بينهم وأجاب الزوج قائلاً زوجتي (${ContactClass.price.text}) طالق طلقة رجعية واحدة بشهادة الله والحاضرين والله على كل شيء شهيد ... علماً إن الزوجة غائبة من محضر الطلاق .",
-                                  'إقرار الزوج \n الاسم : ${ContactClass.username.text} \n الحالة الزوجية : ${ContactClass.userahalla.text} \n المعرف : ${ContactClass.useralley.text} \n العنوان : ${ContactClass.userhome.text} \n \n \n ',
-                                  'إقرار الزوجة \n الاسم : ${ContactClass.payname.text} \n الحالة الزوجية : ${ContactClass.payahalla.text} \n المعرفة : ${ContactClass.payalley.text} \n العنوان : ${ContactClass.payhome.text} ',
+                                  "الحمد لله الذي شرع واحل الطلاق لحسم النزاع وجعله نوعاً من أنواع المصالحة للعباد حيث قال الرسول الأمين (ص) ( الطلاق بين من اخذ بالساق ) وصل الله على محمد وعلى اله وصحبه إلى يـــــــــــــــوم الديـــــــن . وبعــــــــــــــد لقــــــــــد حضـــــــــــــــــر الرجـــــــــــــــــل المســـــــــــــــــــــــمى (${controller.payname.text}) وطلــــــــــب طـــــلاق زوجتـــــــــــــــه      (${controller.username.text}) وهو بكامل قواه العقلية وبعد الإرشاد والنصيحة فأصر على الطـــــــــلاق الرجعي وذلك لعــــــدم انسجام الحياة الزوجية بينهم وأجاب الزوج قائلاً زوجتي (${controller.price.text}) طالق طلقة رجعية واحدة بشهادة الله والحاضرين والله على كل شيء شهيد ... علماً إن الزوجة غائبة من محضر الطلاق .",
+                                  'إقرار الزوج \n الاسم : ${controller.username.text} \n الحالة الزوجية : ${controller.userahalla.text} \n المعرف : ${controller.useralley.text} \n العنوان : ${controller.userhome.text} \n \n \n ',
+                                  'إقرار الزوجة \n الاسم : ${controller.payname.text} \n الحالة الزوجية : ${controller.payahalla.text} \n المعرفة : ${controller.payalley.text} \n العنوان : ${controller.payhome.text} ',
                                   '\n',
-                                  'الشاهد الأول البالغ سن الرشد \n الاسم :${ContactClass.useraddress.text} \n العنوان : ${ContactClass.total.text} ',
-                                  'الشاهد الثاني البالغ سن الرشد \n الاسم :${ContactClass.laweyrsname.text} \n العنوان : ${ContactClass.laweyrsaddress.text} ',
-                                  'ملاحظة : إفادة الزوج إن زوجته في حالة طهر يصح الطـلاق  وان الطلاق للمرة (${ContactClass.dscrp.text}) \nكما تعهد الزوج بدفع كافة حقوق زوجته الشرعية والله خير الشاهدين \nوله حق الرجـوع إلى زوجته إثناء فترة العدة الشرعية البالغة ثلاثة أشهـر مـن تاريخ الطلاق وإنها متروكة الفراش ',
+                                  'الشاهد الأول البالغ سن الرشد \n الاسم :${controller.useraddress.text} \n العنوان : ${controller.total.text} ',
+                                  'الشاهد الثاني البالغ سن الرشد \n الاسم :${controller.laweyrsname.text} \n العنوان : ${controller.laweyrsaddress.text} ',
+                                  'ملاحظة : إفادة الزوج إن زوجته في حالة طهر يصح الطـلاق  وان الطلاق للمرة (${controller.dscrp.text}) \nكما تعهد الزوج بدفع كافة حقوق زوجته الشرعية والله خير الشاهدين \nوله حق الرجـوع إلى زوجته إثناء فترة العدة الشرعية البالغة ثلاثة أشهـر مـن تاريخ الطلاق وإنها متروكة الفراش ',
                                   '\n المستمع لصيغة الطلاق',
                                   '',
                                   '');
@@ -281,8 +268,8 @@ class RevocableDivorce extends StatelessWidget {
                   ],
                 ),
               ),
-            )),
-      ),
-    );
+            ),
+          );
+        });
   }
 }

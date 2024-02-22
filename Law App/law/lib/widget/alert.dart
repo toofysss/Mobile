@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:law/contant/root.dart';
+import 'package:law/localization/changelocal.dart';
 import 'package:law/widget/customtext.dart';
 import 'package:quickalert/quickalert.dart';
 
@@ -96,5 +97,46 @@ class AlertClass {
       },
     );
     Future.delayed(const Duration(seconds: 1), () => Get.back());
+  }
+
+  static showalert(String title, Widget body) {
+    showGeneralDialog(
+      context: Get.context!,
+      barrierDismissible: true,
+      barrierLabel: "",
+      pageBuilder: (context, animation, secondaryAnimation) => Container(),
+      transitionDuration: const Duration(milliseconds: 200),
+      transitionBuilder: (context, a1, a2, child) {
+        return ScaleTransition(
+          scale: Tween<double>(begin: .5, end: 1).animate(a1),
+          child: FadeTransition(
+            opacity: Tween<double>(begin: .5, end: 1).animate(a1),
+            child: AlertDialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                backgroundColor: Root.backgroundApp,
+                title: Visibility(
+                    visible: title.isNotEmpty,
+                    child: Center(
+                      child: CustomText(
+                        color: Root.primary,
+                        data: title,
+                        size: Root.textsize,
+                        textOverflow: TextOverflow.clip,
+                      ),
+                    )),
+                content: body),
+          ),
+        );
+      },
+    );
+  }
+
+  static changelang(String language) {
+    LocalController myServices = Get.find();
+    myServices.changeLang(language);
+    Root.lang = language;
+    Get.back();
+    // Restart.restartApp();
   }
 }

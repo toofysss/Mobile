@@ -8,12 +8,13 @@ class Root {
 
   // Img
   static String imgloc = "images";
-  static String logo = "$imgloc/logo.jpg";
+  static String logo = "$imgloc/logo.png";
+  static String logodark = "$imgloc/dark.png";
   // Size
   static double fontsize = 14;
   static double iconsize = 25;
   // Theme
-  static ThemeMode themeMode = ThemeMode.light;
+  static ThemeMode themeMode = ThemeMode.system;
   static String mode = "";
   // lottie
   static String search = "$imgloc/search.json";

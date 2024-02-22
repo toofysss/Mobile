@@ -12,6 +12,8 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   @override
   changepage(int currentPage) {
+    FocusScope.of(Get.context!).unfocus();
+
     i = currentPage;
     pageController.jumpToPage(i);
     update();

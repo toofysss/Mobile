@@ -2,158 +2,151 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:law/Data/homescreen.dart';
-import 'package:law/Data/services.dart';
 import 'package:law/Desing/customcard.dart';
 import 'package:law/class/yourright.dart';
 import 'package:law/contant/root.dart';
+import 'package:law/widget/alert.dart';
 import 'package:law/widget/backbutton.dart';
-import 'package:law/widget/custombutton.dart';
 import 'package:law/widget/customsearchbutton.dart';
 import 'package:law/widget/customsearchtext.dart';
 import 'package:law/widget/customtext.dart';
 
 // حقوقك
+class YourRightController extends GetxController {
+  TextEditingController searchController = TextEditingController();
+  List<Details> filteredDetails = [];
+
+  void setData(YourRightDetails contract) {
+    filteredDetails = contract.details;
+    update();
+  }
+
+  void search(String text, YourRightDetails contract) {
+    filteredDetails = contract.details
+        .where((e) => e.question!.toLowerCase().contains(text.toLowerCase()))
+        .toList();
+    update();
+  }
+}
+
 class YourRight extends StatelessWidget {
   final List<YourRightDataClass> yourRightInstance;
   const YourRight({required this.yourRightInstance, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-            backgroundColor: Root.backgroundApp,
-            appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                centerTitle: true,
-                title: CustomText(
-                    color: Root.primary,
-                    data: "15".tr,
-                    size: Root.headersize,
-                    textOverflow: TextOverflow.clip),
-                leading: const BackPageButton()),
-            body: Padding(
-                padding: const EdgeInsets.all(8),
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: const BouncingScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisExtent: 120,
-                  ),
-                  scrollDirection: Axis.vertical,
-                  itemCount: yourRightInstance.length,
-                  itemBuilder: (context, index) {
-                    var item = yourRightInstance[index];
-                    return GestureDetector(
-                        onTap: () => Get.to(
-                            () => YourRightDetails(
-                                data: item.title!, details: item.details!),
-                            transition: Transition.fadeIn),
-                        child: CustomCardLaw(
-                            widget: Center(
-                          child: CustomText(
-                              color: Root.secondry,
-                              data: "${item.title}",
-                              size: Root.textsize,
-                              textOverflow: TextOverflow.ellipsis),
-                        )));
-                  },
-                ))));
+    return Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            title: CustomText(
+                color: Theme.of(context).appBarTheme.foregroundColor!,
+                data: "15".tr,
+                size: Root.textsize,
+                textOverflow: TextOverflow.clip),
+            leading: const BackPageButton()),
+        body: Padding(
+            padding: const EdgeInsets.all(8),
+            child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisExtent: 120,
+              ),
+              scrollDirection: Axis.vertical,
+              itemCount: yourRightInstance.length,
+              itemBuilder: (context, index) {
+                var item = yourRightInstance[index];
+                return GestureDetector(
+                    onTap: () => Get.to(
+                        () => YourRightDetails(
+                            data: item.title!, details: item.details!),
+                        transition: Transition.fadeIn),
+                    child: CustomCardLaw(
+                        widget: Center(
+                      child: CustomText(
+                          color: Theme.of(context).primaryColor,
+                          data: "${item.title}",
+                          size: Root.textsize,
+                          textOverflow: TextOverflow.ellipsis),
+                    )));
+              },
+            )));
   }
 }
 
-class YourRightDetails extends StatefulWidget {
+class YourRightDetails extends StatelessWidget {
   final String data;
   final List<Details> details;
   const YourRightDetails(
       {required this.data, required this.details, super.key});
-  @override
-  State<YourRightDetails> createState() => _YourRightDetailsState();
-}
-
-class _YourRightDetailsState extends State<YourRightDetails> {
-  TextEditingController controller = TextEditingController();
-  List<Details> filteredDetails = [];
-
-  @override
-  void initState() {
-    super.initState();
-    controller.clear();
-    filteredDetails = widget.details;
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Scaffold(
-          backgroundColor: Root.backgroundApp,
-          appBar: AppBar(
-            leading: const BackPageButton(),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            centerTitle: true,
-            title: CustomTextSearch(
-                controller: ServicesSection.searchController,
-                hints: "44".tr,
-                onChanged: (text) {
-                  setState(() {
-                    filteredDetails = widget.details
-                        .where((e) => e.question!
-                            .toLowerCase()
-                            .contains(text.toLowerCase()))
-                        .toList();
-                  });
-                },
-                showsearch: Data.isSearching,
-                title: widget.data),
-            actions: [
-              GestureDetector(
-                  onTap: () {
-                    setState(() {
+    YourRightController controller = Get.put(YourRightController());
+    controller.setData(this);
+    return GetBuilder<YourRightController>(
+        init: controller,
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+              leading: const BackPageButton(),
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              centerTitle: true,
+              title: SizedBox(
+                width: Get.width * (Data.isSearching ? 0.8 : 0.0),
+                child: CustomTextSearch(
+                    controller: controller.searchController,
+                    hints: "44".tr,
+                    onChanged: (text) => controller.search(text, this),
+                    showsearch: Data.isSearching,
+                    title: data),
+              ),
+              actions: [
+                GestureDetector(
+                    onTap: () {
                       Data.isSearching = !Data.isSearching;
-                    });
-                  },
-                  child: const CustomSearchButton()),
-            ],
-          ),
-          body: Directionality(
-            textDirection: TextDirection.rtl,
-            child: ListView.builder(
+                      Get.forceAppUpdate();
+                    },
+                    child: const CustomSearchButton()),
+              ],
+            ),
+            body: ListView.builder(
               shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
-              itemCount: filteredDetails.length,
+              itemCount: controller.filteredDetails.length,
               itemBuilder: (context, outerIndex) {
-                var item = filteredDetails[outerIndex];
+                var item = controller.filteredDetails[outerIndex];
                 return Container(
                   margin:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: ExpansionTile(
-                    iconColor: Colors.white,
-                    collapsedIconColor: Colors.white,
-                    backgroundColor: Root.primary,
-                    textColor: Colors.white,
-                    collapsedTextColor: Colors.white,
-                    collapsedBackgroundColor: Root.primary,
+                    iconColor: Theme.of(context).primaryColor,
+                    collapsedIconColor: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).indicatorColor,
+                    textColor: Theme.of(context).primaryColor,
+                    collapsedTextColor: Theme.of(context).primaryColor,
+                    collapsedBackgroundColor: Theme.of(context).indicatorColor,
                     collapsedShape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     title: CustomText(
-                        color: Root.secondry,
+                        color: Theme.of(context).primaryColor,
                         data: item.question!,
                         size: Root.textsize,
                         textOverflow: TextOverflow.clip),
                     children: [
                       ListTile(
                           title: CustomText(
-                            color: Root.secondry,
+                            color: Theme.of(context).primaryColor,
                             data: item.answer!,
                             size: Root.textsize,
                             textOverflow: TextOverflow.clip,
@@ -161,52 +154,19 @@ class _YourRightDetailsState extends State<YourRightDetails> {
                           trailing: Visibility(
                             visible: item.laws!.isNotEmpty,
                             child: GestureDetector(
-                              onTap: () => showGeneralDialog(
-                                context: context,
-                                barrierDismissible: true,
-                                barrierLabel: "",
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) =>
-                                        Container(),
-                                transitionDuration:
-                                    const Duration(milliseconds: 200),
-                                transitionBuilder: (context, a1, a2, child) {
-                                  return ScaleTransition(
-                                    scale: Tween<double>(begin: .5, end: 1)
-                                        .animate(a1),
-                                    child: FadeTransition(
-                                      opacity: Tween<double>(begin: .5, end: 1)
-                                          .animate(a1),
-                                      child: AlertDialog(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                        ),
-                                        backgroundColor: Colors.white,
-                                        content: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            CustomText(
-                                              color: Root.primary,
-                                              data: "${item.laws}",
-                                              size: Root.textsize,
-                                              textOverflow: TextOverflow.clip,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 10),
-                                              child: CustomButton(
-                                                data: "85".tr,
-                                                ontap: () => Get.back(),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
+                              onTap: () => AlertClass.showalert(
+                                "",
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    CustomText(
+                                      color: Theme.of(context).indicatorColor,
+                                      data: "${item.laws}",
+                                      size: Root.textsize,
+                                      textOverflow: TextOverflow.clip,
                                     ),
-                                  );
-                                },
+                                  ],
+                                ),
                               ),
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
@@ -219,7 +179,7 @@ class _YourRightDetailsState extends State<YourRightDetails> {
                                 child: Icon(
                                   FontAwesomeIcons.exclamation,
                                   size: Root.iconsSize,
-                                  color: Root.primary,
+                                  color: Theme.of(context).indicatorColor,
                                 ),
                               ),
                             ),
@@ -229,7 +189,7 @@ class _YourRightDetailsState extends State<YourRightDetails> {
                 );
               },
             ),
-          )),
-    );
+          );
+        });
   }
 }

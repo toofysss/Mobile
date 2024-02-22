@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:restart_app/restart_app.dart';
 import 'package:books/class/searchingdata.dart';
 import 'package:books/constant/data.dart';
 import 'package:books/constant/root.dart';
@@ -12,22 +11,21 @@ class LocalController extends GetxController {
 
   MyServices myServices = Get.find();
 
-// تغيير اللغة
+  // تغيير اللغة
   changeLang(String langcode) {
     Locale locale = Locale(langcode);
     myServices.sharedPreferences.setString("lang", langcode);
     Get.updateLocale(locale);
-    Restart.restartApp();
   }
 
-// تغيير الوضع
+  // تغيير الوضع
   changeMode(bool langcode) {
     myServices.sharedPreferences.setBool("Mode", langcode);
     Root.themeMode = langcode ? ThemeMode.dark : ThemeMode.light;
     Get.forceAppUpdate();
   }
 
-// get lang
+  // get lang
   getlang() {
     String? lang = myServices.sharedPreferences.getString("lang");
     if (lang != null) {
@@ -44,6 +42,8 @@ class LocalController extends GetxController {
     if (devicemode != null) {
       Root.themeMode = devicemode ? ThemeMode.dark : ThemeMode.light;
       Root.mode = devicemode ? "on" : "off";
+    } else {
+      Root.mode = Get.isPlatformDarkMode ? "on" : "off";
     }
   }
 

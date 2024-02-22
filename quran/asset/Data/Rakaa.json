@@ -1,0 +1,29 @@
+{
+    "Rakaa": [
+        {
+            "TitleA": "صلاة الصبح",
+            "TitleE": "morning prayer",
+            "Count": 2
+        },
+        {
+            "TitleA": "صلاة الظهر",
+            "TitleE": "Noon Prayer",
+            "Count": 4
+        },
+        {
+            "TitleA": "صلاة العصر",
+            "TitleE": "Asr Prayer",
+            "Count": 4
+        },
+        {
+            "TitleA": "صلاة المغرب",
+            "TitleE": "Maghrib prayer",
+            "Count": 3
+        },
+        {
+            "TitleA": "صلاة العشاء",
+            "TitleE": "Isha prayer",
+            "Count": 4
+        }
+    ]
+}

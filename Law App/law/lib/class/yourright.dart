@@ -19,13 +19,6 @@ class YourRightDataClass {
   static List<YourRightDataClass> fromJsonList(List<dynamic> jsonList) {
     return jsonList.map((json) => YourRightDataClass.fromJson(json)).toList();
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['dscrp'] = title;
-    return data;
-  }
 }
 
 class Details {
@@ -41,14 +34,5 @@ class Details {
     question = json['qusetion'];
     answer = json['answer'];
     laws = json['laws'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['qusetion'] = question;
-    data['answer'] = answer;
-    data['laws'] = laws;
-    return data;
   }
 }

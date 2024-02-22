@@ -11,14 +11,14 @@ class CustomSearchButton extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
       decoration: BoxDecoration(
-        color: Root.primary,
+        color: Theme.of(context).indicatorColor,
         shape: BoxShape.circle,
       ),
       child: Center(
         child: Icon(
           Data.isSearching ? Icons.close : Icons.search,
           size: Root.iconsSize,
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
         ),
       ),
     );

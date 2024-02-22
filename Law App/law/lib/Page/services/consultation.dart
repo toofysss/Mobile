@@ -1,110 +1,161 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:law/Data/services.dart';
+import 'package:law/Data/homescreen.dart';
+import 'package:law/contant/api.dart';
 import 'package:law/contant/root.dart';
+import 'package:law/widget/alert.dart';
 import 'package:law/widget/backbutton.dart';
 import 'package:law/widget/custombutton.dart';
 import 'package:law/widget/customtext.dart';
 import 'package:law/widget/customtextfield.dart';
-
+import 'package:http/http.dart' as http;
 // استشارة قانونية
+
+class ConsultationController extends GetxController {
+  TextEditingController type = TextEditingController();
+  TextEditingController address = TextEditingController();
+  TextEditingController whatsapp = TextEditingController();
+  TextEditingController dscrp = TextEditingController();
+  File? files;
+
+  pickfile() async {
+    var result = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+      allowMultiple: false,
+    );
+    if (result == null) return;
+    PlatformFile filepicker = result.files.first;
+    files = File(filepicker.path!);
+    Get.forceAppUpdate();
+    AlertClass.upload();
+  }
+
+  sendfile(String userID) async {
+    if (Data.online != true) {
+      return AlertClass.error("50".tr);
+    }
+    if (files == null) {
+      return AlertClass.warning("49".tr);
+    }
+
+    AlertClass.waiting();
+    var url = Uri.parse('${ApiClass.api}/Consultation/Insert');
+    var request = http.MultipartRequest("POST", url);
+    request.fields["UserID"] = userID;
+    request.fields["Phone"] = whatsapp.text;
+    request.fields["Status"] = "0";
+    request.fields["Dscrp"] = dscrp.text;
+    request.fields["Address"] = address.text;
+    request.fields["Files"] = "";
+    request.fields["Type"] = type.text;
+    request.fields["ID"] = "0";
+
+    // Add the image file
+    var file = await http.MultipartFile.fromPath(
+      "file",
+      files!.path,
+    );
+    request.files.add(file);
+
+    var response = await request.send();
+    if (response.statusCode == 200) {
+      Get.back();
+      return AlertClass.success("48".tr);
+    }
+  }
+}
+
 class Consultation extends StatelessWidget {
   final String userID;
   const Consultation({required this.userID, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          backgroundColor: Root.backgroundApp,
-          appBar: AppBar(
-              elevation: 0,
-              backgroundColor: Colors.transparent,
-              centerTitle: true,
-              title: CustomText(
-                  color: Root.primary,
-                  data: "11".tr,
-                  size: Root.headersize,
-                  textOverflow: TextOverflow.ellipsis),
-              leading: const BackPageButton()),
-          body: Directionality(
-            textDirection: LanguageClass.lang.text == "English"
-                ? TextDirection.ltr
-                : TextDirection.rtl,
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+    return GetBuilder<ConsultationController>(
+        init: ConsultationController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+                centerTitle: true,
+                title: CustomText(
+                    color: Theme.of(context).appBarTheme.foregroundColor!,
+                    data: "11".tr,
+                    size: Root.textsize,
+                    textOverflow: TextOverflow.ellipsis),
+                leading: const BackPageButton()),
+            body: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
                         child: CustomTextField(
-                          onChanged: (s) {},
                           textInputType: TextInputType.streetAddress,
-                          controller: ConsultationClass.address,
+                          controller: controller.address,
                           hints: "39".tr,
                           maxline: 1,
-                          maxlength: 150,
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
                         child: CustomTextField(
-                          onChanged: (s) {},
                           textInputType: TextInputType.number,
-                          controller: ConsultationClass.whatsapp,
+                          controller: controller.whatsapp,
                           hints: "42".tr,
                           maxline: 1,
-                          maxlength: 11,
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
                         child: CustomTextField(
-                          onChanged: (s) {},
-                          maxlength: 150,
                           textInputType: TextInputType.name,
-                          controller: ConsultationClass.type,
+                          controller: controller.type,
                           hints: "38".tr,
                           maxline: 1,
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20),
-                        width: Get.width * .8,
+                        width: Get.width * .9,
+                        margin: const EdgeInsets.symmetric(vertical: 10),
                         child: CustomTextField(
-                          onChanged: (s) {},
                           textInputType: TextInputType.multiline,
-                          controller: ConsultationClass.dscrp,
+                          controller: controller.dscrp,
                           hints: "40".tr,
                           maxline: 10,
-                          maxlength: 5000,
                         ),
                       ),
-                      // المرفقات
-                      Container(
-                          width: Get.width * .8,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: CustomButton(
-                              data: "41".tr,
-                              ontap: () => ConsultationClass.pickfile())),
-                      //  Send Btn
-                      Container(
-                          width: Get.width * .8,
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: CustomButton(
-                              data: "43".tr,
-                              ontap: () => ConsultationClass.sendfile(userID)))
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            // المرفقات
+                            SizedBox(
+                                width: Get.width * .4,
+                                child: CustomButton(
+                                    data: "41".tr,
+                                    ontap: () => controller.pickfile())),
+                            //  Send Btn
+                            SizedBox(
+                                width: Get.width * .4,
+                                child: CustomButton(
+                                    data: "43".tr,
+                                    ontap: () => controller.sendfile(userID)))
+                          ],
+                        ),
+                      )
                     ]),
               ),
             ),
-          ),
-        ));
+          );
+        });
   }
 }

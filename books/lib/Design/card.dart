@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomListCard extends StatelessWidget {
-  final List<Items> item;
+  final List<SearchingData> item;
   final String header;
   const CustomListCard({required this.header, required this.item, super.key});
 
@@ -28,7 +28,7 @@ class CustomListCard extends StatelessWidget {
             padding: const EdgeInsets.only(right: 10),
             child: Row(
                 children: List.generate(
-                    item.length > 10 ? 10 : item.length,
+                    item[0].items!.length > 10 ? 10 : item[0].items!.length,
                     (index) => Container(
                           margin: const EdgeInsets.only(left: 15, bottom: 40),
                           height: 290,
@@ -45,16 +45,9 @@ class CustomListCard extends StatelessWidget {
                                   child: Container(
                                       height: 240,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          colors: [
-                                            Theme.of(context).colorScheme.primary,
-                                            Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                          ],
-                                        ),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                         borderRadius: BorderRadius.circular(29),
                                         border: Border.all(
                                             color: Theme.of(context).cardColor),
@@ -62,20 +55,21 @@ class CustomListCard extends StatelessWidget {
                                           BoxShadow(
                                             offset: const Offset(0, 10),
                                             blurRadius: 5,
-                                            color: Theme.of(context).shadowColor,
+                                            color:
+                                                Theme.of(context).shadowColor,
                                           ),
                                         ],
                                       )),
                                 ),
-                            
+
                                 // Img
                                 CustomImage(
                                   image:
-                                      "${item[index].volumeInfo?.imageLinks?.thumbnail}",
+                                      "${item[0].items![index].volumeInfo?.imageLinks?.thumbnail}",
                                   hieght: 170,
                                   width: 130,
                                 ),
-                            
+
                                 // Text +button
                                 Positioned(
                                   bottom: 0,
@@ -101,7 +95,7 @@ class CustomListCard extends StatelessWidget {
                                               children: [
                                                 TextSpan(
                                                   text:
-                                                      "${item[index].volumeInfo?.title}\n",
+                                                      "${item[0].items![index].volumeInfo?.title}\n",
                                                   style: TextStyle(
                                                       fontSize: 15,
                                                       color: Theme.of(context)
@@ -111,7 +105,7 @@ class CustomListCard extends StatelessWidget {
                                                 ),
                                                 TextSpan(
                                                     text:
-                                                        "${item[index].volumeInfo?.authors}",
+                                                        "${item[0].items![index].volumeInfo?.authors}",
                                                     style: TextStyle(
                                                         fontSize: 12,
                                                         color:
@@ -131,18 +125,21 @@ class CustomListCard extends StatelessWidget {
                                               child: GestureDetector(
                                                 onTap: () => Get.to(
                                                     () => PageDetials(
-                                                        data: item[index]),
+                                                        data: item[0]
+                                                            .items![index]),
                                                     transition:
                                                         Transition.fadeIn),
                                                 child: Container(
                                                     alignment: Alignment.center,
                                                     padding: const EdgeInsets
-                                                        .symmetric(vertical: 10),
+                                                        .symmetric(
+                                                        vertical: 10),
                                                     decoration: BoxDecoration(
                                                       color: Theme.of(context)
                                                           .indicatorColor,
                                                       borderRadius:
-                                                          const BorderRadius.only(
+                                                          const BorderRadius
+                                                              .only(
                                                         topLeft:
                                                             Radius.circular(26),
                                                         bottomRight:
@@ -151,7 +148,7 @@ class CustomListCard extends StatelessWidget {
                                                     ),
                                                     child: CustomText(
                                                         color: Theme.of(context)
-                                                            .focusColor,
+                                                            .primaryColor,
                                                         size: 16,
                                                         data: "3".tr)),
                                               ),

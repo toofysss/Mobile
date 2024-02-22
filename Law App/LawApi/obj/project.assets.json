@@ -6269,24 +6269,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tabark\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\meeko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Project\\Flutter\\Templete\\Law App\\LawApi\\LawApi.csproj",
+      "projectUniqueName": "E:\\Project\\Mobile\\Law App\\LawApi\\LawApi.csproj",
       "projectName": "LawApi",
-      "projectPath": "E:\\Project\\Flutter\\Templete\\Law App\\LawApi\\LawApi.csproj",
-      "packagesPath": "C:\\Users\\Tabark\\.nuget\\packages\\",
-      "outputPath": "E:\\Project\\Flutter\\Templete\\Law App\\LawApi\\obj\\",
+      "projectPath": "E:\\Project\\Mobile\\Law App\\LawApi\\LawApi.csproj",
+      "packagesPath": "C:\\Users\\meeko\\.nuget\\packages\\",
+      "outputPath": "E:\\Project\\Mobile\\Law App\\LawApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Tabark\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\meeko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6347,7 +6342,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

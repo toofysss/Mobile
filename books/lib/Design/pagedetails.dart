@@ -49,14 +49,8 @@ class PageDetials extends StatelessWidget {
                       width: Get.width,
                       padding: const EdgeInsets.only(top: 15),
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Theme.of(context).colorScheme.primary,
-                            Theme.of(context).colorScheme.secondary,
-                          ],
-                        ),
+                                    color: Theme.of(context).colorScheme.secondary,
+
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(45),
                             topRight: Radius.circular(45)),
@@ -291,7 +285,7 @@ class PageDetials extends StatelessWidget {
                                           width: Get.width * .45,
                                           alignment: Alignment.center,
                                           padding: const EdgeInsets.symmetric(
-                                              vertical: 10),
+                                              vertical: 0),
                                           decoration: BoxDecoration(
                                               color: Theme.of(context)
                                                   .indicatorColor,
@@ -306,7 +300,8 @@ class PageDetials extends StatelessWidget {
                                                           : 0))),
                                           child: CustomText(
                                               color:
-                                                  Theme.of(context).focusColor,
+                                                  Theme.of(context)
+                                                  .primaryColor,
                                               size: Root.fontsize + 3,
                                               data: "13".tr)),
                                     ),
@@ -341,8 +336,7 @@ class PageDetials extends StatelessWidget {
                                                 ? Icons.favorite
                                                 : Icons.favorite_border,
                                             size: Root.iconsize + 5,
-                                            color: Theme.of(context)
-                                                .indicatorColor,
+                                            color: const Color(0xfffa2f31),
                                           ),
                                         ),
                                       ),

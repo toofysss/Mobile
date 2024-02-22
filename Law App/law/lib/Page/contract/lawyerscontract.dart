@@ -7,80 +7,82 @@ import 'package:law/widget/custombutton.dart';
 import 'package:law/widget/customtext.dart';
 import 'package:law/widget/customtextfield.dart';
 
-class LawyersContract extends StatefulWidget {
+class LawyersContractController extends GetxController {
+  String gender = "183".tr;
+  TextEditingController laweyrsname = TextEditingController();
+  TextEditingController auctioneername = TextEditingController();
+  TextEditingController laweyrsaddress = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController useraddress = TextEditingController();
+  TextEditingController usertype = TextEditingController();
+  TextEditingController types = TextEditingController();
+  TextEditingController total = TextEditingController();
+  String currency = "213".tr;
+  TextEditingController dscrp = TextEditingController();
+  TextEditingController price = TextEditingController();
+  TextEditingController lawname = TextEditingController();
+  TextEditingController lawend = TextEditingController();
+  String paymentway = "115".tr;
+}
+
+class LawyersContract extends StatelessWidget {
   final String title;
   const LawyersContract({required this.title, super.key});
   @override
-  State<LawyersContract> createState() => _LawyersContractState();
-}
-
-class _LawyersContractState extends State<LawyersContract> {
-  @override
-  void initState() {
-    ContactClass.married = "213".tr;
-    ContactClass.paymentway.text = '115'.tr;
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Scaffold(
-        backgroundColor: Root.backgroundApp,
-        appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            centerTitle: true,
-            title: CustomText(
-                color: Root.primary,
-                data: widget.title,
-                size: Root.headersize,
-                textOverflow: TextOverflow.clip),
-            leading: const BackPageButton()),
-        body: Directionality(
-            textDirection: LanguageClass.lang.text == "English"
-                ? TextDirection.ltr
-                : TextDirection.rtl,
-            child: SingleChildScrollView(
+    return GetBuilder<LawyersContractController>(
+        init: LawyersContractController(),
+        builder: (controller) {
+          return Scaffold(
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            appBar: AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                centerTitle: true,
+                title: CustomText(
+                    color: Theme.of(context).appBarTheme.foregroundColor!,
+                    data: title,
+                    size: Root.textsize,
+                    textOverflow: TextOverflow.clip),
+                leading: const BackPageButton()),
+            body: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              physics: const BouncingScrollPhysics(),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: Get.width * 0.8,
+                      width: Get.width * 0.9,
                       margin: const EdgeInsets.only(top: 18),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                         boxShadow: [
                           BoxShadow(
-                            color: Root.primary,
+                            color: Theme.of(context).shadowColor,
                           )
                         ],
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Material(
                         elevation: 6,
-                        shadowColor: Root.primary,
+                        shadowColor: Theme.of(context).indicatorColor,
                         borderRadius: BorderRadius.circular(30),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
                             isExpanded: true,
-                            iconEnabledColor: Root.primary,
-                            iconDisabledColor: Root.primary,
+                            iconEnabledColor: Theme.of(context).indicatorColor,
+                            iconDisabledColor: Theme.of(context).indicatorColor,
                             borderRadius: BorderRadius.circular(25),
                             hint: Center(
                               child: CustomText(
-                                  color: Root.primary,
-                                  data: ContactClass.gender,
+                                  color: Theme.of(context).indicatorColor,
+                                  data: controller.gender,
                                   textOverflow: TextOverflow.clip,
                                   size: Root.textsize),
                             ),
                             onChanged: (value) {
-                              ContactClass.gender = "$value";
+                              controller.gender = "$value";
                               Get.appUpdate();
                               Get.forceAppUpdate();
                             },
@@ -93,7 +95,8 @@ class _LawyersContractState extends State<LawyersContract> {
                                         value: value,
                                         child: Center(
                                           child: CustomText(
-                                            color: Root.primary,
+                                            color: Theme.of(context)
+                                                .indicatorColor,
                                             data: value,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
@@ -104,117 +107,109 @@ class _LawyersContractState extends State<LawyersContract> {
                         ),
                       ),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.laweyrsname,
+                          controller: controller.laweyrsname,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "97".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.laweyrsaddress,
+                          controller: controller.laweyrsaddress,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "98".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.auctioneername,
+                          controller: controller.auctioneername,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "160".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.username,
+                          controller: controller.username,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "100".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.useraddress,
+                          controller: controller.useraddress,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "99".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.number,
-                          onChanged: (s) {},
-                          controller: ContactClass.usertype,
+                          controller: controller.usertype,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "159".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.number,
-                          onChanged: (s) {},
-                          controller: ContactClass.carNo,
+                          controller: controller.types,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "186".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.total,
+                          controller: controller.total,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "101".tr),
                     ),
                     Container(
-                      width: Get.width * 0.8,
+                      width: Get.width * 0.9,
                       margin: const EdgeInsets.only(top: 18),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            color: Root.primary,
+                            color: Theme.of(context).indicatorColor,
                           )
                         ],
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Material(
                         elevation: 6,
-                        shadowColor: Root.primary,
+                        shadowColor: Theme.of(context).indicatorColor,
                         borderRadius: BorderRadius.circular(30),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
                             isExpanded: true,
-                            iconEnabledColor: Root.primary,
-                            iconDisabledColor: Root.primary,
+                            iconEnabledColor: Theme.of(context).indicatorColor,
+                            iconDisabledColor: Theme.of(context).indicatorColor,
                             borderRadius: BorderRadius.circular(25),
                             hint: Center(
                               child: CustomText(
-                                  color: Root.primary,
-                                  data: ContactClass.married,
+                                  color: Theme.of(context).indicatorColor,
+                                  data: controller.currency,
                                   textOverflow: TextOverflow.clip,
                                   size: Root.textsize),
                             ),
                             onChanged: (value) {
-                              ContactClass.married = "$value";
+                              controller.currency = "$value";
                               Get.appUpdate();
                               Get.forceAppUpdate();
                             },
@@ -227,7 +222,8 @@ class _LawyersContractState extends State<LawyersContract> {
                                         value: value,
                                         child: Center(
                                           child: CustomText(
-                                            color: Root.primary,
+                                            color: Theme.of(context)
+                                                .indicatorColor,
                                             data: value,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
@@ -238,77 +234,73 @@ class _LawyersContractState extends State<LawyersContract> {
                         ),
                       ),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.multiline,
-                          onChanged: (s) {},
-                          controller: ContactClass.dscrp,
+                          controller: controller.dscrp,
                           maxline: 10,
-                          maxlength: 1,
                           hints: "104".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.number,
-                          onChanged: (s) {},
-                          controller: ContactClass.price,
+                          controller: controller.price,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "105".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.lawname,
+                          controller: controller.lawname,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "112".tr),
                     ),
-                    Padding(
+                    Container(
+                      width: Get.width * 0.9,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       child: CustomTextField(
                           textInputType: TextInputType.name,
-                          onChanged: (s) {},
-                          controller: ContactClass.lawend,
+                          controller: controller.lawend,
                           maxline: 1,
-                          maxlength: 1,
                           hints: "114".tr),
                     ),
                     Container(
-                      width: Get.width * 0.8,
+                      width: Get.width * 0.9,
                       margin: const EdgeInsets.only(top: 18),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            color: Root.primary,
+                            color: Theme.of(context).indicatorColor,
                           )
                         ],
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Material(
                         elevation: 6,
-                        shadowColor: Root.primary,
+                        shadowColor: Theme.of(context).indicatorColor,
                         borderRadius: BorderRadius.circular(30),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton<String>(
                             isExpanded: true,
-                            iconEnabledColor: Root.primary,
-                            iconDisabledColor: Root.primary,
+                            iconEnabledColor: Theme.of(context).indicatorColor,
+                            iconDisabledColor: Theme.of(context).indicatorColor,
                             borderRadius: BorderRadius.circular(25),
                             hint: Center(
                               child: CustomText(
-                                  color: Root.primary,
-                                  data: ContactClass.paymentway.text,
+                                  color: Theme.of(context).indicatorColor,
+                                  data: controller.paymentway,
                                   textOverflow: TextOverflow.clip,
                                   size: Root.textsize),
                             ),
                             onChanged: (value) {
-                              ContactClass.paymentway.text = "$value";
+                              controller.paymentway = "$value";
                               Get.appUpdate();
                               Get.forceAppUpdate();
                             },
@@ -326,7 +318,8 @@ class _LawyersContractState extends State<LawyersContract> {
                                         value: value,
                                         child: Center(
                                           child: CustomText(
-                                            color: Root.primary,
+                                            color: Theme.of(context)
+                                                .indicatorColor,
                                             data: value,
                                             size: Root.textsize,
                                             textOverflow: TextOverflow.clip,
@@ -347,30 +340,30 @@ class _LawyersContractState extends State<LawyersContract> {
                               String formattedDateTime =
                                   "${now.year}/${now.month}/${now.day}";
                               String paymentway = '';
-                              ContactClass.paymentway.text == "نقدا"
-                                  ? paymentway = ContactClass.paymentway.text
+                              controller.paymentway == "نقدا"
+                                  ? paymentway = controller.paymentway
                                   : paymentway =
-                                      'أو يدفع الاتعاب على الشكل التالي ${ContactClass.paymentway.text}';
+                                      'أو يدفع الاتعاب على الشكل التالي ${controller.paymentway}';
                               ContactClass.createPdf(
                                   '(( عقد خاص بأتعاب المحاماة ))',
                                   'استنادا لاحكام قانون المحاماة رقم ١٧٣ لسنة ١٩٦٥ المعدل اتفق الطرفان المتعاقدان على ما يلي : -',
-                                  "الطرف الأول ${ContactClass.gender} : ${ContactClass.laweyrsname.text} \n الطرف الثاني : ${ContactClass.username.text} ",
-                                  "عنوان المكتب ${ContactClass.laweyrsaddress.text} \n عنوان السكـن ${ContactClass.useraddress.text}",
+                                  "الطرف الأول ${controller.gender} : ${controller.laweyrsname.text} \n الطرف الثاني : ${controller.username.text} ",
+                                  "عنوان المكتب ${controller.laweyrsaddress.text} \n عنوان السكـن ${controller.useraddress.text}",
                                   '''
-1. كلف الطرف الثاني الطرف الأول بالقيام بالأعمال المبينة تفاصيلها ادناء و وافق على دفع كامل اتعاب المحاماة له ومقدارها ${ContactClass.total.text} ${ContactClass.married}
-2. ان الاعمال المكلف بها الطرف الأول هي ${ContactClass.dscrp.text}
-3 . يقر الطرف الأول بأنه قبض من الطرف الثاني مبلغاً مقداره ${ContactClass.price.text} عند التوقيع على هذا العقد كمقدمة للأتعاب المذكورة اعلاه وتصبح حقا مقرراً له مهما كانت نتيجة الاعمال المكلف بها ويتعهد الطرف الثاني بأنه ملزم بدفع كامل الاتعاب الى الطرف الاول حال صدور قرار الحكم من محكمة ${ContactClass.lawname.text}  في الاعمال المبينة اعلاه $paymentway
-4 . اذا انهي الطرف الأول الاعمال المكلف بها اعلاه صلحا او تحكيماً أو بأي سبب او طريقة أخرى وفق ما فوضه به الطرف الثاني  فأن الطرف الأول يستحق كامل اتعابة .
-5 . اذا قام الطرف الثاني بعزل الطرف الاول المحامي أو منعه من الاستمرار في عمله بعد المباشرة فيه بدون سبب مشروع او اذا تنازل عن الدعوى وعن حقة او تصالح مع الخصم خارج المحكمة أو ابطل عريضتها أو صدور قرار عفو عام أو خاص في الدعاوي الجزائية فان الطرف الأول يستحق كامل الاتعاب كما لو كان انهى العمل اصوليا .
-6 . يتعهد الطرف الأول ببذل الجهد والعناية المعتادة للمحافظة على حقوق ومصلحة الطرف الثاني والاستمرار في متابعة العمل المكلف به إلى آخر مراحلها القانونية حسمها وانجازها ولا يكون ملزماً  بتحقيق النتيجة التي يبتغيها الطرف الثاني بل ما يقرره القانون .
-7 . ان الالتزامات الواردة في هذا العقد تنحصر على الاعمال المتفق عليها والمبينة تفاصيلها اعلاه فقط اما اذا تفرعت اعمال جديدة غير ما اتفق عليه ولم تكن ملحوظة وقت الاتفاق فأن الطرف الثاني ملزم بدفع اتعاب جديدة عنها إلى الطرف الأول عند تكليفه بها وبموجب اتفاق جديد بينهما .
-8 . يلتزم الطرف الثاني بتهيئة كافة المستندات والبيانات الضرورية المقتضية وتقديمها إلى الطرف الأول الذي بدوره يسلمها إلى المحكمة او أي جهة مختصة ولا يتحمل المسؤولية في حال ثبت عدم صحتها او تزويرها ومنها ما يطرأ على عنوان محل اقامته أو عمله او على رقم الهاتف من تغيير او تبديل كما يلتزم من جانبه في اجراء كافة التبليغات القانونية المقتضية لخصمه . 
-9 . يتحمل الطرف الثاني كافة الرسوم القانونية ومنها رسوم الدعاوى والتنفيذ ورسوم الطابع عن العقود والمكاتبات والكمبيالات و وصولات الامانه او الغرامات وغيرها من الرسوم القانونية او المستندات الخاصة بالطرف الثاني واجور الكشف والخبراء واجور نقلهم والمصاريف الأخرى التي تستلزمها الاعمال المنوه عنها اعلاه وكذلك نفقات السفر لمتابعة الاعمال المكلف بها خارج المحافظة اوخارج العراق . 
-10 . يعتبر العقد مفسوخا من تلقاء نفسه دون الحاجة الى انذار رسمي أو حكم قضائي عند اخلال الطرف الثاني بالالتزامات المترتبة عليه ويكون ملزما بتأديه للطرف الأول كامل الاتعاب المتفق عليها .
-11. اذا اختلف الطرفان حول تنفيذ بنود العقد فتكون محكمة ${ContactClass.lawend.text} هي المختصة بالنظر فيه .
-حرر بنسختين في $formattedDateTime.''',
-                                  "الطرف الأول \n ${ContactClass.gender} : ${ContactClass.laweyrsname.text} \n الصلاحية ${ContactClass.auctioneername.text} \n",
-                                  "الطرف الثاني \nالاسم الثلاثي: ${ContactClass.username.text} \nالمعرف بالهوية: ${ContactClass.usertype.text} \nجهة الاصدار : ${ContactClass.carNo.text} ",
+        1. كلف الطرف الثاني الطرف الأول بالقيام بالأعمال المبينة تفاصيلها ادناء و وافق على دفع كامل اتعاب المحاماة له ومقدارها ${controller.total.text} ${controller.currency}
+        2. ان الاعمال المكلف بها الطرف الأول هي ${controller.dscrp.text}
+        3 . يقر الطرف الأول بأنه قبض من الطرف الثاني مبلغاً مقداره ${controller.price.text} عند التوقيع على هذا العقد كمقدمة للأتعاب المذكورة اعلاه وتصبح حقا مقرراً له مهما كانت نتيجة الاعمال المكلف بها ويتعهد الطرف الثاني بأنه ملزم بدفع كامل الاتعاب الى الطرف الاول حال صدور قرار الحكم من محكمة ${controller.lawname.text}  في الاعمال المبينة اعلاه $paymentway
+        4 . اذا انهي الطرف الأول الاعمال المكلف بها اعلاه صلحا او تحكيماً أو بأي سبب او طريقة أخرى وفق ما فوضه به الطرف الثاني  فأن الطرف الأول يستحق كامل اتعابة .
+        5 . اذا قام الطرف الثاني بعزل الطرف الاول المحامي أو منعه من الاستمرار في عمله بعد المباشرة فيه بدون سبب مشروع او اذا تنازل عن الدعوى وعن حقة او تصالح مع الخصم خارج المحكمة أو ابطل عريضتها أو صدور قرار عفو عام أو خاص في الدعاوي الجزائية فان الطرف الأول يستحق كامل الاتعاب كما لو كان انهى العمل اصوليا .
+        6 . يتعهد الطرف الأول ببذل الجهد والعناية المعتادة للمحافظة على حقوق ومصلحة الطرف الثاني والاستمرار في متابعة العمل المكلف به إلى آخر مراحلها القانونية حسمها وانجازها ولا يكون ملزماً  بتحقيق النتيجة التي يبتغيها الطرف الثاني بل ما يقرره القانون .
+        7 . ان الالتزامات الواردة في هذا العقد تنحصر على الاعمال المتفق عليها والمبينة تفاصيلها اعلاه فقط اما اذا تفرعت اعمال جديدة غير ما اتفق عليه ولم تكن ملحوظة وقت الاتفاق فأن الطرف الثاني ملزم بدفع اتعاب جديدة عنها إلى الطرف الأول عند تكليفه بها وبموجب اتفاق جديد بينهما .
+        8 . يلتزم الطرف الثاني بتهيئة كافة المستندات والبيانات الضرورية المقتضية وتقديمها إلى الطرف الأول الذي بدوره يسلمها إلى المحكمة او أي جهة مختصة ولا يتحمل المسؤولية في حال ثبت عدم صحتها او تزويرها ومنها ما يطرأ على عنوان محل اقامته أو عمله او على رقم الهاتف من تغيير او تبديل كما يلتزم من جانبه في اجراء كافة التبليغات القانونية المقتضية لخصمه . 
+        9 . يتحمل الطرف الثاني كافة الرسوم القانونية ومنها رسوم الدعاوى والتنفيذ ورسوم الطابع عن العقود والمكاتبات والكمبيالات و وصولات الامانه او الغرامات وغيرها من الرسوم القانونية او المستندات الخاصة بالطرف الثاني واجور الكشف والخبراء واجور نقلهم والمصاريف الأخرى التي تستلزمها الاعمال المنوه عنها اعلاه وكذلك نفقات السفر لمتابعة الاعمال المكلف بها خارج المحافظة اوخارج العراق . 
+        10 . يعتبر العقد مفسوخا من تلقاء نفسه دون الحاجة الى انذار رسمي أو حكم قضائي عند اخلال الطرف الثاني بالالتزامات المترتبة عليه ويكون ملزما بتأديه للطرف الأول كامل الاتعاب المتفق عليها .
+        11. اذا اختلف الطرفان حول تنفيذ بنود العقد فتكون محكمة ${controller.lawend.text} هي المختصة بالنظر فيه .
+        حرر بنسختين في $formattedDateTime.''',
+                                  "الطرف الأول \n ${controller.gender} : ${controller.laweyrsname.text} \n الصلاحية ${controller.auctioneername.text} \n",
+                                  "الطرف الثاني \nالاسم الثلاثي: ${controller.username.text} \nالمعرف بالهوية: ${controller.usertype.text} \nجهة الاصدار : ${controller.types.text} ",
                                   '',
                                   '',
                                   '',
@@ -379,8 +372,8 @@ class _LawyersContractState extends State<LawyersContract> {
                   ],
                 ),
               ),
-            )),
-      ),
-    );
+            ),
+          );
+        });
   }
 }
