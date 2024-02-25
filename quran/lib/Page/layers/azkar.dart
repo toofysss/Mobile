@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quran/Design/azkardesign.dart';
-import 'package:quran/Design/duaadesign.dart';
 import 'package:quran/constant/data.dart';
 import 'package:quran/constant/root.dart';
 import 'package:quran/controller/azkarcontroller.dart';
-import 'package:quran/localization/changelocal.dart';
 import 'package:quran/widget/custombackbutton.dart';
 import 'package:quran/widget/customtext.dart';
 
@@ -14,8 +12,9 @@ class Azkar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AzkarControllerImp());
-    return GetBuilder<AzkarControllerImp>(builder: (controller) {
+    return GetBuilder<AzkarControllerImp>(
+      init: AzkarControllerImp(),
+      builder: (controller) {
       return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(

@@ -7,17 +7,16 @@ class Root {
 
   // Img
   static String imgloc = "asset";
-  static String jsonData = "asset/Data";
-  static String logo = "$imgloc/logo.jpg";
+  static String jsonData = "$imgloc/Data";
+  static String appBarlogo = "$imgloc/OIP.jpg";
   // Size
   static double fontsize = 16;
   static double headersize = Get.width / 19;
   static double iconsize = 25;
   // Theme
-  static ThemeMode themeMode = ThemeMode.light;
+  static ThemeMode themeMode = ThemeMode.system;
   static String mode = "";
 }
-
 
 class ThemeDataClass {
   static Color textLight = Colors.white;

@@ -12,8 +12,9 @@ class Duaa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(DuaaControllerImp());
-    return GetBuilder<DuaaControllerImp>(builder: (controller) {
+    return GetBuilder<DuaaControllerImp>(
+      init: DuaaControllerImp(),
+      builder: (controller) {
       return Scaffold(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           appBar: AppBar(

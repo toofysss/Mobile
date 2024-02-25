@@ -20,29 +20,29 @@ class DataClass {
   }
 
   Future<String> getlocation() async {
-    // bool serviceEnabled;
-    // LocationPermission permission;
+    bool serviceEnabled;
+    LocationPermission permission;
     Position position;
-    // serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    // if (!serviceEnabled) {
-    // return
-    // }
-    // if (permission == LocationPermission.denied) {
-    //   permission = await Geolocator.requestPermission();
-    //   if (permission == LocationPermission.denied) {
-    //     return Future.error('Location permissions are denied');
-    //   } else if (permission == LocationPermission.whileInUse) {}
-    // }
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+    return
+    }
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      } else if (permission == LocationPermission.whileInUse) {}
+    }
 
-    // if (permission == LocationPermission.deniedForever) {
-    //   // Permissions are denied forever, handle appropriately.
-    //   return Future.error(
-    //       'Location permissions are permanently denied, we cannot request permissions.');
-    // }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
     position = await Geolocator.getCurrentPosition();
     List<Placemark> placemark =
         await placemarkFromCoordinates(position.latitude, position.longitude);
-    return "${placemark[0].locality}";
+    return "
+    ";
   }
 }
 
