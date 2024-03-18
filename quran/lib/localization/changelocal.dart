@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:quran/constant/data.dart';
 import '../constant/root.dart';
 import '../services/services.dart';
@@ -9,54 +10,55 @@ class LocalController extends GetxController {
 
   MyServices myServices = Get.find();
 
-// تغيير اللغة
-  changeLang(String langcode) {
-    Locale locale = Locale(langcode);
-    myServices.sharedPreferences.setString("lang", langcode);
-    Root.lang = "$locale";
-    Get.updateLocale(locale);
+  setLanguage(String lang) {
+    language = Locale(lang);
+    Root.lang = lang;
+    HijriCalendar.setLocal(lang);
   }
 
-// تغيير الوضع
-  changeMode(bool langcode) {
-    myServices.sharedPreferences.setBool("Mode", langcode);
-    Root.themeMode = langcode ? ThemeMode.dark : ThemeMode.light;
-    Get.forceAppUpdate();
-  }
-
-// get lang
   getlang() {
     String? lang = myServices.sharedPreferences.getString("lang");
-    if (lang != null) {
-      language = Locale(lang);
-      Root.lang = lang;
-    } else {
-      language = Locale(Get.deviceLocale!.languageCode);
-      Root.lang = Get.deviceLocale!.languageCode;
-    }
+    lang != null
+        ? setLanguage(lang)
+        : setLanguage(Get.deviceLocale!.languageCode);
   }
 
-  getMode() {
-    bool? devicemode = myServices.sharedPreferences.getBool("Mode");
-    if (devicemode != null) {
-      Root.themeMode = devicemode ? ThemeMode.dark : ThemeMode.light;
-      Root.mode = devicemode ? "on" : "off";
+  getlocation() async {
+    double? latitude = myServices.sharedPreferences.getDouble("latitude");
+    double? longitude = myServices.sharedPreferences.getDouble("longitude");
+    if ( latitude != null && longitude != null) {
+      Root.latitude = latitude;
+      Root.longitude = longitude;
+    } else {
+      var data = await DataClass.getLocation();
+      Root.latitude = data[0];
+      Root.longitude = data[1];
+      myServices.sharedPreferences.setDouble("latitude", Root.latitude);
+      myServices.sharedPreferences.setDouble("longitude", Root.longitude);
     }
+    update();
   }
 
   getData() async {
+    QuranList.quranData();
     DuaaList.duaaData();
     HadithList.hadithData();
     AllahNameList.allahNameData();
     PrayerList.prayerData();
     AzkarList.azkarData();
+    SalatAnbiaaList.salatAnbiaaData();
+    MonajaList.monajaData();
+    ZyaraList.zyaraData();
+    GuideInfoList.guideData();
+    TasbehatList.tasbehatData();
+    AhlalbaitList.ahlalbaytData();
+    AlamalList.alamalData();
   }
 
-// عند تشغيل التطبيق
   @override
   void onInit() {
+    getlocation();
     getlang();
-    getMode();
     getData();
     super.onInit();
   }

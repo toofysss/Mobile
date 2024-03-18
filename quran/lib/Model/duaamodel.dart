@@ -18,18 +18,24 @@ class DuaaModel {
 }
 
 class Days {
-  String? title;
-  String? dscrp;
+  String? titleA;
+  String? dscrpA;
+  String? titleE;
+  String? dscrpE;
 
   Days({
-    this.title,
-    this.dscrp,
+    this.titleA,
+    this.dscrpA,
+    this.titleE,
+    this.dscrpE,
   });
 
   factory Days.fromJson(Map<String, dynamic> json) {
     return Days(
-      title: json['Title'],
-      dscrp: json['Dscrp'],
+      titleA: json['TitleA'],
+      dscrpA: json['DscrpA'],
+      titleE: json['TitleE'],
+      dscrpE: json['DscrpE'],
     );
   }
 }
@@ -38,10 +44,7 @@ class Duaa {
   String? title;
   String? dscrp;
 
-  Duaa({
-    this.title,
-    this.dscrp,
-  });
+  Duaa({this.title, this.dscrp});
 
   factory Duaa.fromJson(Map<String, dynamic> json) {
     return Duaa(
@@ -52,18 +55,23 @@ class Duaa {
 }
 
 class DuaaQuran {
-  String? dscrp;
-  String? title;
-
+  String? titleA;
+  String? dscrpA;
+  String? titleE;
+  String? dscrpE;
   DuaaQuran({
-    this.title,
-    this.dscrp,
+    this.titleA,
+    this.dscrpA,
+    this.titleE,
+    this.dscrpE,
   });
 
   factory DuaaQuran.fromJson(Map<String, dynamic> json) {
     return DuaaQuran(
-      title: json['Title'],
-      dscrp: json['Dscrp'],
+      titleA: json['TitleA'],
+      dscrpA: json['DscrpA'],
+      titleE: json['TitleE'],
+      dscrpE: json['DscrpE'],
     );
   }
 }

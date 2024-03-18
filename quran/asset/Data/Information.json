@@ -3,160 +3,212 @@
         {
             "NameA": "النبي الاعظم محمد صلى الله عليه وسلم",
             "NameE": "The Greatest Prophet Muhammad (PBUH)",
-            "Date": "17 ربيع الاول",
-            "DeadDate": "28 صفر"
+            "DateA": "17 ربيع الاول",
+            "DeadDateA": "28 صفر",
+            "DateE": "17 Rabi' al-Awwal",
+            "DeadDateE": "28 Safar"
         },
         {
             "NameA": " الامام على بن ابى طالب صلى الله عليه وسلم",
             "NameE": "Imam Ali bin Abi Talib (PBUH)",
-            "Date": "13 رجب",
-            "DeadDate": "21 رمضان"
+            "DateA": "13 رجب",
+            "DeadDateA": "21 رمضان",
+            "DateE": "13 Rajab",
+            "DeadDateE": "21 Ramadan"
         },
         {
             "NameA": "السيدة فاطمة الزهراء عليها السلام",
             "NameE": "Lady Fatima Al-Zahra (peace be upon her)",
-            "Date": "20 جمادي الاول",
-            "DeadDate": "8 ربيع الثاني \nاو 13 جمادي الاول \nاو 3 جمادي الثانس"
+            "DateA": "20 جمادي الاول",
+            "DeadDateA": "8 ربيع الثاني \nاو 13 جمادي الاول \nاو 3 جمادي الثانس",
+            "DateE": "20 Jumada al-Awwal",
+            "DeadDateE": "8 Rabi' al-Thani\nor 13 Jumada al-Awal\n\nor 3 Jumada al-Thani"
         },
         {
             "NameA": "الامام الحسن بن علي المجتبى عليه السلام",
             "NameE": "Imam Al-Hassan bin Ali Al-Mujtaba (peace be upon him)",
-            "Date": "15 رمضان",
-            "DeadDate": "7 صفر"
+            "DateA": "15 رمضان",
+            "DeadDateA": "7 صفر",
+            "DateE": "15 Ramadan",
+            "DeadDateE": "7 Safar"
         },
         {
             "NameA": "الامام الحسن بن علي الشهيد عليه السلام",
             "NameE": "Imam Hassan bin Ali, the martyr (peace be upon him)",
-            "Date": "3 شعبان",
-            "DeadDate": "10 محرم"
+            "DateA": "3 شعبان",
+            "DeadDateA": "10 محرم",
+            "DateE": "3 Sha'ban",
+            "DeadDateE": "10 Muharram"
         },
         {
             "NameA": "الامام علي بن الحسين السجاد عليه السلام",
             "NameE": "Imam Ali bin Al-Hussein Al-Sajjad (peace be upon him)",
-            "Date": "5 شعبان",
-            "DeadDate": "25 محرم"
+            "DateA": "5 شعبان",
+            "DeadDateA": "25 محرم",
+            "DateE": "5 Sha'ban",
+            "DeadDateE": "25 Muharram"
         },
         {
             "NameA": "الامام محمد بن علي الباقر عليه السلام",
             "NameE": "Imam Muhammad bin Ali Al-Baqir (peace be upon him)",
-            "Date": "1 رجب",
-            "DeadDate": "7 ذو الحجة"
+            "DateA": "1 رجب",
+            "DeadDateA": "7 ذو الحجة",
+            "DateE": "1 Rajab",
+            "DeadDateE": "7 Dhu al-Hijjah"
         },
         {
             "NameA": "الامام جعفر بن محمد الصادق عليه السلام",
             "NameE": "Imam Jaafar bin Muhammad Al-Sadiq (peace be upon him)",
-            "Date": "17 ربيع الاول",
-            "DeadDate": "25 شوال"
+            "DateA": "17 ربيع الاول",
+            "DeadDateA": "25 شوال",
+            "DateE": "17 Rabi' al-Awwal",
+            "DeadDateE": "25 Shawwal"
         },
         {
             "NameA": "الامام موسى بن جعفر الكاظم عليه السلام",
             "NameE": "Imam Musa bin Jaafar Al-Kadhim (peace be upon him)",
-            "Date": "7 صفر",
-            "DeadDate": "25 رجب"
+            "DateA": "7 صفر",
+            "DeadDateA": "25 رجب",
+            "DateE": "7 Safar",
+            "DeadDateE": "25 Rajab"
         },
         {
             "NameA": "الامام علي بن موسى الرضا عليه السلام",
             "NameE": "Imam Ali bin Musa Al-Rida (peace be upon him)",
-            "Date": "11 ذو القعدة",
-            "DeadDate": "17 صفر"
+            "DateA": "11 ذو القعدة",
+            "DeadDateA": "17 صفر",
+            "DateE": "11 Dhu al-Qaeda",
+            "DeadDateE": "17 Safar"
         },
         {
             "NameA": "الامام محمد بن علي الجواد عليه السلام",
             "NameE": "Imam Muhammad bin Ali Al-Jawad (peace be upon him)",
-            "Date": "10 رجب",
-            "DeadDate": "اخر ذي القعدة"
+            "DateA": "10 رجب",
+            "DeadDateA": "اخر ذي القعدة",
+            "DateE": "10 Rajab",
+            "DeadDateE": "The end of Dhul-Qi'dah"
         },
         {
             "NameA": "الامام علي بن محمد الهادي عليه السلام",
             "NameE": "Imam Ali bin Muhammad al-Hadi (peace be upon him)",
-            "Date": "2 رجب",
-            "DeadDate": "3 رجب"
+            "DateA": "2 رجب",
+            "DateE": "2 Rajab",
+            "DeadDateA": "3 رجب",
+            "DeadDateE": "3 Rajab"
         },
         {
             "NameA": "الامام الحسن بن علي العسكري عليه السلام",
             "NameE": "Imam Hassan bin Ali Al-Askari (peace be upon him)",
-            "Date": "8 ربيع الثاني",
-            "DeadDate": "8 ربيع الاول"
+            "DateA": "8 ربيع الثاني",
+            "DeadDateA": "8 ربيع الاول",
+            "DateE": "8 Rabi' al-Thani",
+            "DeadDateE": "8 Rabi' al-Awwal"
         },
         {
             "NameA": "الامام الحجة بن الحسن المهدي عليه السلام",
             "NameE": "Imam Al-Hujjah bin Al-Hassan Al-Mahdi (peace be upon him)",
-            "Date": "15 شعبان",
-            "DeadDate": "لا يزال حيا بأذن الله تعالى"
+            "DateA": "15 شعبان",
+            "DeadDateA": "لا يزال حيا بأذن الله تعالى",
+            "DateE": "Shaban 15",
+            "DeadDateE": "He is still alive, God willing."
         }
     ],
     "Maswomen": [
         {
             "NameA": " الامام على بن ابى طالب صلى الله عليه وسلم",
             "NameE": "Imam Ali bin Abi Talib (PBUH)",
-            "Date": "13 رجب",
-            "DeadDate": "21 رمضان"
+            "DateA": "13 رجب",
+            "DeadDateA": "21 رمضان",
+            "DateE": "13 Rajab",
+            "DeadDateE": "21 Ramadan"
         },
         {
             "NameA": "الامام الحسن بن علي المجتبى عليه السلام",
             "NameE": "Imam Al-Hassan bin Ali Al-Mujtaba (peace be upon him)",
-            "Date": "15 رمضان",
-            "DeadDate": "7 صفر"
+            "DateA": "15 رمضان",
+            "DeadDateA": "7 صفر",
+            "DateE": "15 Ramadan",
+            "DeadDateE": "7 Safar"
         },
         {
             "NameA": "الامام الحسن بن علي الشهيد عليه السلام",
             "NameE": "Imam Hassan bin Ali, the martyr (peace be upon him)",
-            "Date": "3 شعبان",
-            "DeadDate": "10 محرم"
+            "DateA": "3 شعبان",
+            "DeadDateA": "10 محرم",
+            "DateE": "3 Sha'ban",
+            "DeadDateE": "10 Muharram"
         },
         {
             "NameA": "الامام علي بن الحسين السجاد عليه السلام",
             "NameE": "Imam Ali bin Al-Hussein Al-Sajjad (peace be upon him)",
-            "Date": "5 شعبان",
-            "DeadDate": "25 محرم"
+            "DateA": "5 شعبان",
+            "DeadDateA": "25 محرم",
+            "DateE": "5 Sha'ban",
+            "DeadDateE": "25 Muharram"
         },
         {
             "NameA": "الامام محمد بن علي الباقر عليه السلام",
             "NameE": "Imam Muhammad bin Ali Al-Baqir (peace be upon him)",
-            "Date": "1 رجب",
-            "DeadDate": "7 ذو الحجة"
+            "DateA": "1 رجب",
+            "DeadDateA": "7 ذو الحجة",
+            "DateE": "1 Rajab",
+            "DeadDateE": "7 Dhu al-Hijjah"
         },
         {
             "NameA": "الامام جعفر بن محمد الصادق عليه السلام",
             "NameE": "Imam Jaafar bin Muhammad Al-Sadiq (peace be upon him)",
-            "Date": "17 ربيع الاول",
-            "DeadDate": "25 شوال"
+            "DateA": "17 ربيع الاول",
+            "DeadDateA": "25 شوال",
+            "DateE": "17 Rabi' al-Awwal",
+            "DeadDateE": "25 Shawwal"
         },
         {
             "NameA": "الامام موسى بن جعفر الكاظم عليه السلام",
             "NameE": "Imam Musa bin Jaafar Al-Kadhim (peace be upon him)",
-            "Date": "7 صفر",
-            "DeadDate": "25 رجب"
+            "DateA": "7 صفر",
+            "DeadDateA": "25 رجب",
+            "DateE": "7 Safar",
+            "DeadDateE": "25 Rajab"
         },
         {
             "NameA": "الامام علي بن موسى الرضا عليه السلام",
             "NameE": "Imam Ali bin Musa Al-Rida (peace be upon him)",
-            "Date": "11 ذو القعدة",
-            "DeadDate": "17 صفر"
+            "DateA": "11 ذو القعدة",
+            "DeadDateA": "17 صفر",
+            "DateE": "11 Dhu al-Qaeda",
+            "DeadDateE": "17 Safar"
         },
         {
             "NameA": "الامام محمد بن علي الجواد عليه السلام",
             "NameE": "Imam Muhammad bin Ali Al-Jawad (peace be upon him)",
-            "Date": "10 رجب",
-            "DeadDate": "اخر ذي القعدة"
+            "DateA": "10 رجب",
+            "DeadDateA": "اخر ذي القعدة",
+            "DateE": "10 Rajab",
+            "DeadDateE": "The end of Dhul-Qi'dah"
         },
         {
             "NameA": "الامام علي بن محمد الهادي عليه السلام",
             "NameE": "Imam Ali bin Muhammad al-Hadi (peace be upon him)",
-            "Date": "2 رجب",
-            "DeadDate": "3 رجب"
+            "DateA": "2 رجب",
+            "DateE": "2 Rajab",
+            "DeadDateA": "3 رجب",
+            "DeadDateE": "3 Rajab"
         },
         {
             "NameA": "الامام الحسن بن علي العسكري عليه السلام",
             "NameE": "Imam Hassan bin Ali Al-Askari (peace be upon him)",
-            "Date": "8 ربيع الثاني",
-            "DeadDate": "8 ربيع الاول"
+            "DateA": "8 ربيع الثاني",
+            "DeadDateA": "8 ربيع الاول",
+            "DateE": "8 Rabi' al-Thani",
+            "DeadDateE": "8 Rabi' al-Awwal"
         },
         {
             "NameA": "الامام الحجة بن الحسن المهدي عليه السلام",
             "NameE": "Imam Al-Hujjah bin Al-Hassan Al-Mahdi (peace be upon him)",
-            "Date": "15 شعبان",
-            "DeadDate": "لا يزال حيا بأذن الله تعالى"
+            "DateA": "15 شعبان",
+            "DeadDateA": "لا يزال حيا بأذن الله تعالى",
+            "DateE": "Shaban 15",
+            "DeadDateE": "He is still alive, God willing."
         }
     ]
 }
