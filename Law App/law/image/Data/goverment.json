@@ -1,0 +1,94 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "cityA": "أربيل",
+            "cityE": "Arbail"
+        },
+        {
+            "id": 2,
+            "cityA": "الأنبار",
+            "cityE": "Arbail"
+        },
+        {
+            "id": 3,
+            "cityA": "بابل",
+            "cityE": "Babylon"
+        },
+        {
+            "id": 4,
+            "cityA": "بغداد",
+            "cityE": "Baghdad"
+        },
+        {
+            "id": 5,
+            "cityA": "البصرة",
+            "cityE": "Basra"
+        },
+        {
+            "id": 6,
+            "cityA": "دهوك",
+            "cityE": "Dohuk"
+        },
+        {
+            "id": 7,
+            "cityA": "القادسية",
+            "cityE": "Al-Qadisiyah"
+        },
+        {
+            "id": 8,
+            "cityA": "ديالى",
+            "cityE": "Diyala"
+        },
+        {
+            "id": 9,
+            "cityA": "ذي قار",
+            "cityE": "Dhi Qar"
+        },
+        {
+            "id": 10,
+            "cityA": "السليمانية",
+            "cityE": "Sulaymaniyah"
+        },
+        {
+            "id": 11,
+            "cityA": "صلاح الدين",
+            "cityE": "Salahaddin"
+        },
+        {
+            "id": 12,
+            "cityA": "كركوك",
+            "cityE": "Kirkuk"
+        },
+        {
+            "id": 13,
+            "cityA": "كربلاء",
+            "cityE": "Karbala"
+        },
+        {
+            "id": 14,
+            "cityA": "المثنى",
+            "cityE": "Al-Muthanna"
+        },
+        {
+            "id": 15,
+            "cityA": "ميسان",
+            "cityE": "Maysan"
+        },
+        {
+            "id": 16,
+            "cityA": "النجف",
+            "cityE": "Najaf"
+        },
+        {
+            "id": 17,
+            "cityA": "نينوى",
+            "cityE": "Nineveh"
+        },
+        {
+            "id": 18,
+            "cityA": "واسط",
+            "cityE": "Wasit"
+        }
+    ]
+}
